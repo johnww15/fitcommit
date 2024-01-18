@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavBar from "../../components/NavBar";
 import LoginForm from "../../components/LoginForm";
 import SignUpForm from "../../components/SignUpForm";
 
@@ -7,8 +8,9 @@ export default function AuthPage(setUser) {
 
   return (
     <>
+      <NavBar />
       {isNewAccount ? (
-        <SignUpForm />
+        <SignUpForm setIsNewAccount={setIsNewAccount} />
       ) : (
         <LoginForm setIsNewAccount={setIsNewAccount} />
       )}
