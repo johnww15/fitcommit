@@ -1,4 +1,10 @@
-export default function LoginForm() {
+import { useState } from "react";
+
+export default function LoginForm({ setIsNewAccount }) {
+  const handleClick = () => {
+    setIsNewAccount(true);
+  };
+
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -71,13 +77,13 @@ export default function LoginForm() {
                 Sign in
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?
-                <a
-                  href="#"
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                Don’t have an account yet?{" "}
+                <span
+                  className="font-medium text-jade-500 hover:underline dark:text-primary-500"
+                  onClick={handleClick}
                 >
                   Sign up
-                </a>
+                </span>
               </p>
             </form>
           </div>
