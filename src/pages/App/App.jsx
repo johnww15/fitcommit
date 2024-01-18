@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LoginForm from "../../components/LoginForm";
 import SignUpForm from "../../components/SignUpForm";
@@ -12,7 +11,7 @@ export default function App() {
   const [user, setUser] = useState(null);
   return (
     <>
-      <h1>Welcome</h1>
+      <h1 className="text-3xl font-bold underline">Welcome</h1>
       <LoginForm />
       <SignUpForm />
 
