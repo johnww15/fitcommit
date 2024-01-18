@@ -1,7 +1,4 @@
-lololo
-
 joey was here
 
-kukuku
+bobzz
 
-jujuju
