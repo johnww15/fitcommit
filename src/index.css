@@ -17,5 +17,8 @@
     button{
     @apply  focus:outline-none text-zinc-100 hover:bg-jade-700 focus:ring-4 focus:ring-jade-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2
     }
+    input{
+      @apply bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-jade-600 focus:border-jade-600 block w-full p-2.5
+    }
   };
 
