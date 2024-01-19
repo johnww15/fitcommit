@@ -1,10 +1,11 @@
 import RecommendationsInputBar from "../../components/RecommendationInputBar";
+import RecommendationsResults from "../../components/RecommendationsResults";
 
 export default function RecommendationsPage() {
   return (
     <>
-      <h2>Recommendations</h2>
       <RecommendationsInputBar />
+      <RecommendationsResults />
     </>
   );
 }
