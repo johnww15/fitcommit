@@ -8,7 +8,7 @@ export default function NavBar() {
       </li>
       <li>
         {" "}
-        <NavLink to="/fitness">Progress</NavLink>
+        <NavLink to="/progress">Progress</NavLink>
       </li>
 
       <li>

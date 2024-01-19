@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
-import FitnessPage from "../FitnessPage/FitnessPage";
+import ProgressPage from "../ProgressPage/ProgressPage";
 import DashboardPage from "../DashboardPage/DashboardPage";
 import CommunityPage from "../CommunityPage/CommunityPage";
 import RecommendationsPage from "../RecommendationsPage/RecommendationsPage";
@@ -25,8 +25,8 @@ export default function App() {
           {" "}
           <Routes>
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/fitness" element={<FitnessPage />} />
-            <Route path="/fitness/new" element={<EntriesPage />} />
+            <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/progress/new" element={<EntriesPage />} />
             <Route path="/recommendations" element={<RecommendationsPage />} />
             <Route path="/community" element={<CommunityPage />} />
           </Routes>
