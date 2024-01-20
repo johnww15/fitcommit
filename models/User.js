@@ -1,24 +1,31 @@
-const { model, Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema(
   {
-    name: { type: String, required: true },
-    email: {
+    user_name: { type: String, required: true },
+    user_email: {
       type: String,
       unique: true,
       trim: true,
       lowercase: true,
       required: true,
     },
-    password: {
+    user_password: {
       type: String,
       trim: true,
       minLength: 3,
       required: true,
     },
+    //reference to entry.js file and entrySchema
+    user_entry: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Entry",
+      },
+    ],
   },
   {
     timestamps: true,
