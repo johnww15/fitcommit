@@ -26,6 +26,13 @@ const userSchema = new Schema(
         ref: "Entry",
       },
     ],
+    //reference to favourite.js and favouriteSchema
+    user_favourite: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Favourite",
+      },
+    ],
   },
   {
     timestamps: true,
