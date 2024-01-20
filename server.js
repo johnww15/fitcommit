@@ -4,7 +4,9 @@ require("./config/database");
 
 const express = require("express");
 const path = require("path");
-
+const logger = require("morgan");
+var indexRouter = require("./routes/index");
+var userRouter = require("./routes/users");
 const usersRouter = require("./routes/usersRouter");
 const jwt = require("jsonwebtoken");
 
@@ -12,8 +14,12 @@ const jwt = require("jsonwebtoken");
 const app = express();
 
 //* middleware block
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "dist")));
+
+app.use("/", indexRouter);
+app.use("/", userRouter);
 
 const checkToken = (req, res, next) => {
   const token = req.get("Authorization")?.split(" ")?.[1];
@@ -39,6 +45,11 @@ app.get("/api/secret", checkToken, (req, res) => {
   res.json({ orders: req.name });
 });
 
+app.get("/api", (req, res) => {
+  res.json({ hello: "world" });
+});
+
+//this acts as a catch all function and must be at the very end after all other functions
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });

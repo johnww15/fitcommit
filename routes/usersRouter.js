@@ -1,9 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { userLogin, userSignup } = require("../controllers/usersController");
+const {
+  userLogin,
+  userSignup,
+  userIndex,
+} = require("../controllers/usersController");
 
-router.post("/login", userLogin);
-router.post("/signup", userSignup);
+//user router functions for login/signups
+router.post("/login", userLogin); //check if user exists in database and provide JWT token
+router.post("/signup", userSignup); //user create
+
+//user router functions for data queries
+router.get("/users", userIndex);
 
 module.exports = router;

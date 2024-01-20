@@ -51,7 +51,21 @@ const userSignup = async (req, res) => {
   }
 };
 
+//for data retrievals and json files
+
+//include error handling to trigger if there is an error during data query
+const userIndex = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json({ users });
+  } catch (error) {
+    console.error("error in userIndex function in usersController file", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   userLogin,
   userSignup,
+  userIndex,
 };
