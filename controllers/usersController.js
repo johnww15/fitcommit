@@ -35,7 +35,7 @@ const userLogin = async (req, res) => {
 const userSignup = async (req, res) => {
   const data = req.body;
 
-  if (data.password.trim().length < 3) {
+  if (data.user_password.trim().length < 3) {
     const error = { msg: "server password too short" };
     res.status(400).json(error);
     return;

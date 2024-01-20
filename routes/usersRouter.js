@@ -12,6 +12,6 @@ router.post("/login", userLogin); //check if user exists in database and provide
 router.post("/signup", userSignup); //user create
 
 //user router functions for data queries
-router.get("/users", userIndex);
+router.get("/", userIndex);
 
 module.exports = router;
