@@ -7,6 +7,8 @@ import DashboardPage from "../DashboardPage/DashboardPage";
 import CommunityPage from "../CommunityPage/CommunityPage";
 import RoulettePage from "../RoulettePage/RoulettePage";
 import EntriesPage from "../EntriesPage/EntriesPage";
+import FavouritesPage from "../FavouritesPage/FavouritesPage";
+import TopNavBar from "../../components/TopNavBar";
 
 export default function App() {
   const [user, setUser] = useState(false);
@@ -25,6 +27,7 @@ export default function App() {
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/progress" element={<ProgressPage />} />
               <Route path="/progress/new" element={<EntriesPage />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
               <Route path="/roulette" element={<RoulettePage />} />
               <Route path="/community" element={<CommunityPage />} />
             </Routes>

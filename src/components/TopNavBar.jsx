@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function TopNavBar() {
   return (
-    <nav className="bg-white border-gray-200">
+    <nav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <p className="self-center text-2xl font-semibold whitespace-nowrap">
           fit<span className="italic text-jade-500">Commit</span>

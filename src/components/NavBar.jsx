@@ -17,7 +17,18 @@ export default function NavBar() {
           <li className="relative">
             <NavLink
               to="/dashboard"
-              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] mt-2 mb-5 px-6 py-4 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
+              data-te-sidenav-link-ref
+            >
+              <h1 className="text-zinc-50">
+                fit<span className="text-jade-500 italic">Commit</span>
+              </h1>
+            </NavLink>
+          </li>
+          <li className="relative">
+            <NavLink
+              to="/dashboard"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
             >
               <span>Dashboard</span>
@@ -26,7 +37,7 @@ export default function NavBar() {
           <li className="relative">
             <NavLink
               to="/progress"
-              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
             >
               <span>Progress</span>
@@ -35,7 +46,7 @@ export default function NavBar() {
           <li className="relative">
             <NavLink
               to="/roulette"
-              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
             >
               <span>Roulette</span>
@@ -44,7 +55,7 @@ export default function NavBar() {
           <li className="relative">
             <NavLink
               to="/favourites"
-              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
             >
               <span>Favourites</span>
@@ -52,17 +63,27 @@ export default function NavBar() {
           </li>
           <li>
             <NavLink
-              to="/favourites"
-              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+              to="/community"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
             >
               <span>Community (TBC)</span>
             </NavLink>
           </li>
+
+          <li>
+            <NavLink
+              to="/"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
+              data-te-sidenav-link-ref
+            >
+              <span>Log out</span>
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <button
-        className="mt-10 inline-block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+        className="mt-10  inline-block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
         data-te-sidenav-toggle-ref
         data-te-target="#sidenav-1"
         aria-controls="#sidenav-1"
@@ -76,9 +97,9 @@ export default function NavBar() {
             className="h-5 w-5"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
         </span>
