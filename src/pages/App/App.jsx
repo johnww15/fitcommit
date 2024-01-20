@@ -5,7 +5,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import ProgressPage from "../ProgressPage/ProgressPage";
 import DashboardPage from "../DashboardPage/DashboardPage";
 import CommunityPage from "../CommunityPage/CommunityPage";
-import RecommendationsPage from "../RecommendationsPage/RecommendationsPage";
+import RoulettePage from "../RoulettePage/RoulettePage";
 import EntriesPage from "../EntriesPage/EntriesPage";
 
 export default function App() {
@@ -17,23 +17,27 @@ export default function App() {
 
   return (
     <>
-      <button onClick={handleClick}>Tmp button to toggle setUser state</button>
-      <NavBar />
-
       {user ? (
         <>
-          {" "}
-          <Routes>
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/progress" element={<ProgressPage />} />
-            <Route path="/progress/new" element={<EntriesPage />} />
-            <Route path="/recommendations" element={<RecommendationsPage />} />
-            <Route path="/community" element={<CommunityPage />} />
-          </Routes>
+          <NavBar />
+          <div className="flex">
+            <Routes>
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/progress/new" element={<EntriesPage />} />
+              <Route path="/roulette" element={<RoulettePage />} />
+              <Route path="/community" element={<CommunityPage />} />
+            </Routes>
+          </div>
         </>
       ) : (
         <AuthPage setUser={setUser} />
       )}
+      <div className="fixed right-0 bottom-0">
+        <button className="bg-jade-300" onClick={handleClick}>
+          Tmp button to toggle setUser state
+        </button>
+      </div>
     </>
   );
 }

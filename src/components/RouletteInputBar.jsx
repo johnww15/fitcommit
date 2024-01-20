@@ -1,4 +1,4 @@
-export default function RecommendationsInputBar() {
+export default function RouletteInputBar() {
   return (
     <section className="px-6 py-8">
       <h1>Search by muscle group:</h1>
