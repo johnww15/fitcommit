@@ -11,14 +11,30 @@ export default function SignUpForm({ setIsNewAccount }) {
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="user-name"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Your username
+                </label>
+                <input
+                  type="text"
+                  name="user-name"
+                  id="user-name"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="username"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="user-email"
                   className="block mb-2 text-sm font-medium"
                 >
                   Your email
                 </label>
                 <input
                   type="email"
-                  name="email"
+                  name="user-email"
                   id="email"
                   className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="name@company.com"
