@@ -45,6 +45,15 @@ export default function NavBar() {
           </li>
           <li className="relative">
             <NavLink
+              to="/progress/new"
+              className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
+              data-te-sidenav-link-ref
+            >
+              <span>New Entry</span>
+            </NavLink>
+          </li>
+          <li className="relative">
+            <NavLink
               to="/roulette"
               className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 transition duration-300 ease-linear hover:bg-jade-500 hover:text-zinc-900 focus:bg-jade-500 focus:text-zinc-900 active:bg-jade-500 data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
               data-te-sidenav-link-ref
