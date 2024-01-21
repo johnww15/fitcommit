@@ -1,5 +1,9 @@
 export default function EntriesForm() {
-  const handleClick = () => {
+  const handleProgressClick = () => {
+    // POST to add entry into MongoDB - Collection
+    console.log("fitness chart to be updated");
+  };
+  const handleCalendarClick = () => {
     // POST to add entry into MongoDB - Collection
     console.log("calendar to be updated");
   };
@@ -114,13 +118,22 @@ export default function EntriesForm() {
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-jade-500"
-              onClick={handleClick}
-            >
-              Add to Progress
-            </button>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <button
+                type="submit"
+                className="w-full bg-jade-500"
+                onClick={handleProgressClick}
+              >
+                Add to Progress
+              </button>
+              <button
+                type="submit"
+                className="w-full bg-jade-500"
+                onClick={handleCalendarClick}
+              >
+                Add to Calendar
+              </button>
+            </div>
           </form>
         </div>
       </div>
