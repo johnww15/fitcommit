@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "../../components/NavBar";
+import SideNavBar from "../../components/SideNavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import ProgressPage from "../ProgressPage/ProgressPage";
 import DashboardPage from "../DashboardPage/DashboardPage";
@@ -8,7 +8,6 @@ import CommunityPage from "../CommunityPage/CommunityPage";
 import RoulettePage from "../RoulettePage/RoulettePage";
 import EntriesPage from "../EntriesPage/EntriesPage";
 import FavouritesPage from "../FavouritesPage/FavouritesPage";
-import TopNavBar from "../../components/TopNavBar";
 
 export default function App() {
   const [user, setUser] = useState(false);
@@ -21,7 +20,7 @@ export default function App() {
     <>
       {user ? (
         <>
-          <NavBar />
+          <SideNavBar />
           <div className="flex">
             <Routes>
               <Route path="/dashboard" element={<DashboardPage />} />

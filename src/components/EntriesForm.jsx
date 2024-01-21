@@ -1,5 +1,6 @@
 export default function EntriesForm() {
   const handleClick = () => {
+    // POST to add entry into MongoDB - Collection
     console.log("calendar to be updated");
   };
   return (
@@ -113,7 +114,11 @@ export default function EntriesForm() {
                 </div>
               </div>
             </div>
-            <button type="submit" className="w-full bg-jade-500">
+            <button
+              type="submit"
+              className="w-full bg-jade-500"
+              onClick={handleClick}
+            >
               Add to Progress
             </button>
           </form>
