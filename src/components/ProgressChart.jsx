@@ -11,13 +11,10 @@ export default function ProgressChart() {
           datasets: [
             {
               data: progressData.map((data) => data.maxWeight),
-              backgroundColor: "#1acd81",
-              borderColor: "#81f4c3",
+              backgroundColor: "#fafafa",
+              borderColor: "#89fa00",
             },
           ],
-          options: {
-            responsive: true,
-          },
         }}
       />
     </div>
