@@ -3,7 +3,7 @@ import LoginForm from "../../components/LoginForm";
 import SignUpForm from "../../components/SignUpForm";
 import TopNavBar from "../../components/TopNavBar";
 
-export default function AuthPage() {
+export default function AuthPage({ setUser }) {
   const [isNewAccount, setIsNewAccount] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ export default function AuthPage() {
       {isNewAccount ? (
         <SignUpForm setIsNewAccount={setIsNewAccount} />
       ) : (
-        <LoginForm setIsNewAccount={setIsNewAccount} />
+        <LoginForm setIsNewAccount={setIsNewAccount} setUser={setUser} />
       )}
     </>
   );

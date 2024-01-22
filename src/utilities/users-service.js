@@ -20,18 +20,28 @@ export function getUser() {
 }
 
 //sign up
+// export async function signUp(userData) {
+//   const token = await usersAPI.signUp(userData);
+//   localStorage.setItem("token", token);
+//   return getUser();
+// }
+
 export async function signUp(userData) {
+  // validation
+  if (userData.password.trim().length < 5) {
+    return null;
+  }
   const token = await usersAPI.signUp(userData);
-  localStorage.setItem("token", token);
-  return getUser();
+  // return user from token
+  return token;
 }
 
-//log in
-export async function login(credentials) {
-  const token = await usersAPI.login(credentials);
-  localStorage.setItem("token", token);
-  return getUser();
-}
+// //log in
+// export async function login(credentials) {
+//   const token = await usersAPI.login(credentials);
+//   localStorage.setItem("token", token);
+//   return getUser();
+// }
 
 //log out
 export function logOut() {
