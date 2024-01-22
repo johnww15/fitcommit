@@ -10,7 +10,7 @@
     "entries": [{
         "entry_date":"2024-03-19",
         "entry_exercise": "Bench Press",
-        "entry_muscle":"Chest",
+        "entry_muscle": "Chest",
         "entry_reps": 10,
         "entry_sets":4,
         "entry_weight": 40
@@ -18,7 +18,7 @@
     {
       "entry_date":"2024-03-19",
       "entry_exercise": "Bicep Curl",
-      "entry_muscle":"Arms",
+      "entry_muscle": "Arms",
       "entry_reps": 15,
       "entry_sets":4,
       "entry_weight": 10
@@ -26,7 +26,7 @@
   {
     "entry_date":"2024-03-19",
     "entry_exercise": "Tricep Overhead Extension",
-    "entry_muscle":"Arms",
+    "entry_muscle": "Arms",
     "entry_reps": 12,
     "entry_sets": 4,
     "entry_weight": 10
@@ -34,7 +34,7 @@
   {
     "entry_date":"2024-01-20",
     "entry_exercise": "Barbell Squat",
-    "entry_muscle":"Legs",
+    "entry_muscle": "Legs",
     "entry_reps": 15,
     "entry_sets":4,
     "entry_weight": 25
@@ -42,7 +42,7 @@
 {
   "entry_date":"2024-01-20",
   "entry_exercise": "Forward Lunges",
-  "entry_muscle":"Legs",
+  "entry_muscle": "Legs",
   "entry_reps": 15,
   "entry_sets": 4,
   "entry_weight": 12

@@ -3,18 +3,29 @@ import { useState } from "react";
 export default function RouletteInputBar() {
   const [selectedMuscle, setSelectedMuscle] = useState("");
   const [searchErrorMsg, setSearchErrorMsg] = useState({ error: "" });
+  const [rouletteResults, setRouletteResults] = useState([]);
 
   const handleSelectChange = (event) => {
     console.log(`${event.target.value} is selected`);
+    setSelectedMuscle(event.target.value);
   };
+
   const handleClick = () => {
-    console.log("Search by muscle group button");
-    // A FETCH function should appear here
+    // alert("Search by muscle group button");
   };
+
+  const handleSubmit = (event) => {
+    //prevent a full page reload
+    event.preventDefault();
+  };
+
   return (
     <section className="px-6 py-8">
       <h1>Search by muscle group:</h1>
-      <form className="grid grid-cols-2 gap-10 items-center justify-center mx-auto lg:py-0">
+      <form
+        className="grid grid-cols-2 gap-10 items-center justify-center mx-auto lg:py-0"
+        onSubmit={handleSubmit}
+      >
         <label
           htmlFor="default-search"
           className="text-sm font-medium text-gray-900 sr-only dark:text-white"

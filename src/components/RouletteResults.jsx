@@ -1,34 +1,13 @@
-export default function RouletteResults() {
+export default function RouletteResults({ item }) {
   return (
-    <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
-      <h2>All results of the search go here:</h2>
-      <div className="grid grid-cols-5 gap-10">
-        <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-          Chest Exercise 01{" "}
-          <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
-          <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
-        </div>
-        <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-          Chest Exercise 02{" "}
-          <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
-          <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
-        </div>
-        <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-          Chest Exercise 03{" "}
-          <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
-          <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
-        </div>
-        <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-          Chest Exercise 04{" "}
-          <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
-          <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
-        </div>
-        <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-          Chest Exercise 05{" "}
-          <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
-          <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
-        </div>
+    <div className="flex flex-col rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+      <img src={item.img} className="object-cover h-32 w-full" />
+      <div className="px-6 py-4">
+        <p>{item.muscle}</p>
+        <h1>{item.name}</h1>
       </div>
-    </section>
+      <button className="bg-jade-500 px-1.5 py-1">+ Calendar</button>
+      <button className="bg-jade-500 px-1.5 py-1">+ Favourites</button>
+    </div>
   );
 }
