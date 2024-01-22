@@ -1,9 +1,10 @@
-export default function Calendar() {
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
+export default function CalendarCard() {
   return (
-    <>
-      <h2>Calendar Component</h2>
-      <p>Need to find library or create own calendar here</p>
-      <img src="https://print-a-calendar.com/printable-calendars/one-page-per-month-thumbnail.png" />
-    </>
+    <div className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
+      <Calendar />
+    </div>
   );
 }
