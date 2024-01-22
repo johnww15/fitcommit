@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ProgressPage() {
-  // code from json-server (fake API)
+  // code from json-server (fake API) - to be moved to utilities entries-api.js
   useEffect(() => {
     async function fetchEntries() {
       const response = await fetch("http://localhost:3000/entries", {
