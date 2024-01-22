@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import EntriesForm from "../../components/EntriesForm";
 
 export default function EntriesPage() {

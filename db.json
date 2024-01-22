@@ -14,6 +14,27 @@
         "entry_reps": 10,
         "entry_sets":4,
         "entry_weight": 40
-
+    }, {
+      "entry_date":"2024-03-18",
+      "entry_exercise": "Bench Press",
+      "entry_muscle":"Chest",
+      "entry_reps": 10,
+      "entry_sets":4,
+      "entry_weight": 35
+    }, {
+      "entry_date":"2024-03-17",
+      "entry_exercise": "Bench Press",
+      "entry_muscle":"Chest",
+      "entry_reps": 10,
+      "entry_sets":4,
+      "entry_weight": 20
+    }
+  ],
+    "favourites": [{
+        "favourite_exercise": "Bicep Curl",
+        "favourite_muscle": "Arms",
+       "favourite_reps": 12,
+       "favourite_sets": 4,
+       "favourite_weight": 5
     }]
   }

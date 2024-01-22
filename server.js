@@ -1,5 +1,6 @@
 //* require block
 require("dotenv").config();
+// connect to mongoDB here
 require("./config/database");
 
 const express = require("express");
