@@ -1,0 +1,19 @@
+{
+    "users": [
+      {
+        "user_name": "jojo",
+        "user_email": "jojo@gmail.com",
+        "user_password": "123"
+
+      }
+    ],
+    "entries": [{
+        "entry_date":"2024-03-19",
+        "entry_exercise": "Bench Press",
+        "entry_muscle":"Chest",
+        "entry_reps": 10,
+        "entry_sets":4,
+        "entry_weight": 40
+
+    }]
+  }
