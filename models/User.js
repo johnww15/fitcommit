@@ -5,35 +5,42 @@ const SALT_ROUNDS = 6;
 
 const userSchema = new Schema(
   {
-    user_name: {
+    name: {
       type: String,
       required: true,
     },
-    user_email: {
+    email: {
       type: String,
       unique: true,
       trim: true,
       lowercase: true,
       required: true,
     },
-    user_password: {
+    password: {
       type: String,
       trim: true,
       minLength: 3,
       required: true,
     },
     //reference to entry.js file and entrySchema
-    user_entry: [
+    entry: [
       {
         type: Schema.Types.ObjectId,
         ref: "Entry",
       },
     ],
     //reference to favourite.js and favouriteSchema
-    user_favourite: [
+    favourite: [
       {
         type: Schema.Types.ObjectId,
         ref: "Favourite",
+      },
+    ],
+    //reference to plan.js and planSchema
+    plan: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Plan",
       },
     ],
   },
