@@ -173,7 +173,7 @@ export default function SignUpForm({ setIsNewAccount }) {
                 <p className="text-sm font-light">
                   Already have an account?{" "}
                   <span
-                    className="font-medium text-jade-500 hover:underline"
+                    className="font-medium text-jade-500 cursor-pointer"
                     onClick={handleClick}
                   >
                     Login here

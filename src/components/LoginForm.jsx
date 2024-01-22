@@ -126,7 +126,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{" "}
                 <span
-                  className="font-medium text-jade-500 hover:underline dark:text-primary-500"
+                  className="font-medium text-jade-500 cursor-pointer dark:text-primary-500"
                   onClick={handleClick}
                 >
                   Sign up
