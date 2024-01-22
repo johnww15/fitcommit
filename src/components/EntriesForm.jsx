@@ -13,21 +13,39 @@ export default function EntriesForm() {
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1>Input a new workout:</h1>
           <form className="space-y-4 md:space-y-6">
-            <div>
-              <label
-                htmlFor="workout-name"
-                className="block mb-2 text-sm font-medium"
-              >
-                Name of workout:
-              </label>
-              <input
-                type="text"
-                name="workout-name"
-                id="workout-name"
-                className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                placeholder="Bench Press"
-                required=""
-              />
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div>
+                <label
+                  htmlFor="workout-name"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Name of workout:
+                </label>
+                <input
+                  type="text"
+                  name="workout-name"
+                  id="workout-name"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Bench Press"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="workout-name"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Date:
+                </label>
+                <input
+                  type="date"
+                  name="workout-name"
+                  id="workout-name"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Bench Press"
+                  required=""
+                />
+              </div>
             </div>
             <div className="grid md:grid-cols-3 md:gap-6">
               <div>

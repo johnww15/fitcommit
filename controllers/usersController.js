@@ -42,7 +42,7 @@ const userSignup = async (req, res) => {
   }
 
   try {
-    const user = await User.userSignup(data);
+    const user = await User.create(data);
     const token = createToken(user);
 
     res.status(201).json({ token });

@@ -1,19 +1,26 @@
 const { Schema, model } = require("mongoose");
 
 const calendarSchema = new Schema({
-  calendar_date: {
+  date: {
     type: Date,
     required: true,
   },
+  //reference to user.js file and userSchema
+  userId: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   //reference to entry.js file and entrySchema
-  calendar_entry: [
+  entry: [
     {
       type: Schema.Types.ObjectId,
       ref: "Entry",
     },
   ],
   //reference to favourite.js and favouriteSchema
-  calendar_favourite: [
+  favourite: [
     {
       type: Schema.Types.ObjectId,
       ref: "Favourite",

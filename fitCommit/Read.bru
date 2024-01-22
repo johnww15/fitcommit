@@ -1,11 +1,11 @@
 meta {
-  name: Connect
+  name: Read
   type: http
-  seq: 1
+  seq: 2
 }
 
-post {
-  url: http://localhost:3000/api/users/signup
+get {
+  url: http://localhost:3000/entries/
   body: json
   auth: none
 }
