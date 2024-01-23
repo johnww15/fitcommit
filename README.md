@@ -14,7 +14,7 @@ Dashboard Page:
 
 Roulette
 
-- /entries?entry_exercise=chest
+- /entries?entry_muscle=chest
 
 Progress Page:
 
