@@ -1,4 +1,4 @@
-export default function FavouritesModal({ setShowModal }) {
+export default function AddToCalendarModal({ setShowModal }) {
   const handleCloseModal = () => {
     setShowModal(false);
   };

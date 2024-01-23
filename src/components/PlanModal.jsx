@@ -1,4 +1,4 @@
-export default function CalendarModal({ setShowModal, date }) {
+export default function PlanModal({ setShowModal, date }) {
   const handleCloseModal = () => {
     setShowModal(false);
   };

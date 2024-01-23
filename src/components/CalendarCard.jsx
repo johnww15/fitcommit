@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import CalendarModal from "./CalendarModal";
+import PlanModal from "./PlanModal";
 
 export default function CalendarCard() {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +21,7 @@ export default function CalendarCard() {
 
       {showModal && (
         <>
-          <CalendarModal setShowModal={setShowModal} date={date} />
+          <PlanModal setShowModal={setShowModal} date={date} />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>
       )}

@@ -7,7 +7,7 @@ export default function RoulettePage() {
   const [rouletteResults, setRouletteResults] = useState("");
 
   const fetchByMuscle = exercisesByMuscle.filter(
-    (item) => item.muscle === "Chest"
+    (item) => item.muscle === "Legs"
   );
   console.log(fetchByMuscle);
 
