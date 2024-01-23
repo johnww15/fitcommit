@@ -24,7 +24,7 @@ const userSchema = new Schema(
     },
     isPrivate: {
       type: Boolean,
-    }
+    },
     //reference to entry.js file and entrySchema
     entry: [
       {
