@@ -1,4 +1,4 @@
-export default function Modal(setShowModal) {
+export default function Modal({ setShowModal }) {
   const handleCloseModal = () => {
     setShowModal(false);
   };
