@@ -2,12 +2,13 @@ const Entry = require("../models/Entry");
 
 //function to create new entry data
 const entryCreate = async (req, res) => {
-  const data = req.body;
   const { userId } = req.params;
+  const data = { ...req.body, userId };
+  console.log("entryCreate running", data, userId);
   try {
     const createdEntry = await Entry.create(data);
-    createdEntry.userId.push(userId);
-    await createdEntry.save();
+    // createdEntry.userId.push(userId);
+    // await createdEntry.save();
     res.json({ createdEntry });
   } catch (error) {
     console.error(
