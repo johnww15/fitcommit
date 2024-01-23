@@ -11,7 +11,6 @@ var userRouter = require("./routes/users");
 const usersRouter = require("./routes/usersRouter");
 const entriesRouter = require("./routes/entriesRouter");
 const favouritesRouter = require("./routes/favouritesRouter");
-const calendarRouter = require("./routes/calendarRouter");
 const plansRouter = require("./routes/plansRouter");
 const jwt = require("jsonwebtoken");
 
@@ -41,7 +40,6 @@ const checkToken = (req, res, next) => {
 app.use("/api/users", usersRouter);
 app.use("/api/entries", entriesRouter);
 app.use("/api/favourites", favouritesRouter);
-app.use("/api/calendar", calendarRouter);
 app.use("/api/plan", plansRouter);
 
 //* routes block
