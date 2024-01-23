@@ -92,9 +92,6 @@ function createJWT(user) {
 const create = async (req, res) => {
   const data = req.body;
 
-  // setting validation at the server side
-  // create function to create account does not run if confition not fulfilled
-
   console.log(data);
 
   if (data.password.trim().length < 3) {
