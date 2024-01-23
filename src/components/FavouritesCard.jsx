@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modal";
+import FavouritesModal from "./FavouritesModal";
 
 export default function FavouritesCard() {
   const [showModal, setShowModal] = useState(false);
@@ -35,7 +35,7 @@ export default function FavouritesCard() {
           </button>
           {showModal && (
             <>
-              <Modal setShowModal={setShowModal} />
+              <FavouritesModal setShowModal={setShowModal} />
               <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
             </>
           )}

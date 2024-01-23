@@ -4,17 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 export default function ProgressPage() {
   // code from json-server (fake API) - to be moved to utilities entries-api.js
-  useEffect(() => {
-    async function fetchEntries() {
-      const response = await fetch("http://localhost:3000/entries", {
-        headers: { "Content-Type": "application/json" },
-      });
-      const jsonEntries = await response.json();
-      console.log(jsonEntries);
-    }
+  // useEffect(() => {
+  //   async function fetchEntries() {
+  //     const response = await fetch("http://localhost:3000/entries", {
+  //       headers: { "Content-Type": "application/json" },
+  //     });
+  //     const jsonEntries = await response.json();
+  //     console.log(jsonEntries);
+  //   }
 
-    fetchEntries();
-  }, []);
+  //   fetchEntries();
+  // }, []);
 
   const navigate = useNavigate();
 
