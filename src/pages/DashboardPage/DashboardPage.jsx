@@ -1,4 +1,4 @@
-import CalendarCard from "../../components/Calendar";
+import CalendarCard from "../../components/CalendarCard";
 import { useState, useEffect } from "react";
 import EntriesCard from "../../components/EntriesCard";
 
@@ -7,18 +7,19 @@ export default function DashboardPage() {
 
   // code from json-server (fake API) - to be moved to utilities entries-api.js
   // REST API endpoints: /entries?entry_date
-  useEffect(() => {
-    async function fetchEntries() {
-      const response = await fetch("http://localhost:3000/entries", {
-        headers: { "Content-Type": "application/json" },
-      });
-      const jsonEntries = await response.json();
-      console.log(jsonEntries);
-      setEntries(jsonEntries);
-    }
+  // useEffect(() => {
+  //   async function fetchEntries() {
+  //     const response = await fetch("http://localhost:3000/entries", {
+  //       headers: { "Content-Type": "application/json" },
+  //     });
+  //     const jsonEntries = await response.json();
+  //     console.log(jsonEntries);
+  //     setEntries(jsonEntries);
+  //   }
 
-    fetchEntries();
-  }, []);
+  //   fetchEntries();
+  // }, []);
+
   return (
     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
       <h1>Dashboard</h1>
