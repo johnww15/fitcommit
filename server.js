@@ -38,6 +38,7 @@ const checkToken = (req, res, next) => {
   }
 };
 app.use("/api/users", usersRouter);
+// app.use("/api/users", checkToken, usersRouter);
 app.use("/api/entries", entriesRouter);
 app.use("/api/favourites", favouritesRouter);
 app.use("/api/plan", plansRouter);

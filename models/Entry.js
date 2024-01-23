@@ -7,7 +7,7 @@ const entrySchema = new Schema(
   {
     date: {
       type: Date,
-      //include function to have a default value of today's date
+      // include function to have a default value of today's date
       default: () => {
         const defaultDate = new Date();
         defaultDate.setDate(defaultDate.getDate());
