@@ -1,3 +1,4 @@
+import { useState } from "react";
 import FavouritesCard from "../../components/FavouritesCard";
 
 export default function FavouritesPage() {
