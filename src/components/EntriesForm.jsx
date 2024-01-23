@@ -19,7 +19,7 @@ export default function EntriesForm() {
     });
   };
 
-  const handleProgressClick = async (submitType, evt) => {
+  const handleClick = async (submitType, evt) => {
     // POST to add entry into MongoDB - Collection
     evt.preventDefault();
     if (submitType === "progress") {
@@ -31,22 +31,19 @@ export default function EntriesForm() {
     }
   };
 
-  const handleCalendarClick = async (evt) => {
-    // POST to add entry into MongoDB - Collection
-    evt.preventDefault();
-    const response = await createPlan(entryFormData);
-    console.log(response);
-  };
+  // const handleCalendarClick = async (evt) => {
+  //   // POST to add entry into MongoDB - Collection
+  //   evt.preventDefault();
+  //   const response = await createPlan(entryFormData);
+  //   console.log(response);
+  // };
 
   return (
     <section>
       <div className="w-full bg-white rounded-lg shadow border border-jade-700 md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1>Input a new workout:</h1>
-          <form
-            className="space-y-4 md:space-y-6"
-            onSubmit={handleProgressClick}
-          >
+          <form className="space-y-4 md:space-y-6" onSubmit={handleClick}>
             <div className="grid md:grid-cols-2 md:gap-6">
               <div>
                 <label
@@ -206,14 +203,14 @@ export default function EntriesForm() {
               <button
                 type="submit"
                 className="w-full bg-jade-500"
-                onClick={(evt) => handleProgressClick("progress", evt)}
+                onClick={(evt) => handleClick("progress", evt)}
               >
                 Add to Progress
               </button>
               <button
                 type="submit"
                 className="w-full bg-jade-500"
-                onClick={(evt) => handleProgressClick("calendar", evt)}
+                onClick={(evt) => handleClick("calendar", evt)}
               >
                 Add to Calendar
               </button>
