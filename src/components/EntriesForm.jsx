@@ -21,6 +21,7 @@ export default function EntriesForm() {
                 >
                   Name of workout:
                 </label>
+
                 <input
                   type="text"
                   name="workout-name"
@@ -29,6 +30,23 @@ export default function EntriesForm() {
                   placeholder="Bench Press"
                   required=""
                 />
+              </div>{" "}
+              <div>
+                <label
+                  htmlFor="workout-muscle"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Muscle
+                </label>
+                <select
+                  id="muscle-group"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 rounded-lg focus:ring-jade-500 focus:border-jade-500 block w-full p-2.5"
+                >
+                  <option value="Arms">Arms</option>
+                  <option value="Back">Back</option>
+                  <option value="Chest">Chest</option>
+                  <option value="Legs">Legs</option>
+                </select>
               </div>
               <div>
                 <label
