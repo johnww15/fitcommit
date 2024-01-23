@@ -22,6 +22,9 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
+    isPrivate: {
+      type: Boolean,
+    }
     //reference to entry.js file and entrySchema
     entry: [
       {
