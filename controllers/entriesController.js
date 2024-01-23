@@ -31,6 +31,28 @@ const entryIndex = async (req, res) => {
   }
 };
 
+const entryIndexByExercise = async (req, res) => {
+  const { exerciseName, limit, userId } = req.params;
+  //create regular expression to make case insensitive name
+  const insensitiveExerciseName = new RegExp(exerciseName, "i");
+  //search for the data, sort by date then pull with the given limit
+  try {
+    const exerciseEntries = await Entry.find({
+      userId: userId,
+      exercise: { $regex: insensitiveExerciseName },
+    })
+      .sort({ date: -1 })
+      .limit(limit);
+    res.json({ exerciseEntries });
+  } catch (error) {
+    console.error(
+      "error in entryIndexByExercise function in entryController file",
+      error
+    );
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 //function to delete an entry data by entryId
 const entryDelete = async (req, res) => {
   const { entryId } = req.params;
@@ -59,4 +81,5 @@ module.exports = {
   entryIndex,
   entryCreate,
   entryDelete,
+  entryIndexByExercise,
 };
