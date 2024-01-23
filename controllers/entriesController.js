@@ -7,8 +7,6 @@ const entryCreate = async (req, res) => {
   console.log("entryCreate running", data, userId);
   try {
     const createdEntry = await Entry.create(data);
-    // createdEntry.userId.push(userId);
-    // await createdEntry.save();
     res.json({ createdEntry });
   } catch (error) {
     console.error(

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createEntry } from "../utilities/entries-service";
+import { createPlan } from "../utilities/plans-service";
 
 export default function EntriesForm() {
   const [entryFormData, setEntryFormData] = useState({
@@ -18,37 +19,25 @@ export default function EntriesForm() {
     });
   };
 
-  const handleProgressClick = async (evt) => {
+  const handleProgressClick = async (submitType, evt) => {
     // POST to add entry into MongoDB - Collection
     evt.preventDefault();
-    const response = await createEntry(entryFormData);
+    if (submitType === "progress") {
+      const response = await createEntry(entryFormData);
+      console.log(response);
+    } else if (submitType === "calendar") {
+      const response = await createPlan(entryFormData);
+      console.log(response);
+    }
+  };
+
+  const handleCalendarClick = async (evt) => {
+    // POST to add entry into MongoDB - Collection
+    evt.preventDefault();
+    const response = await createPlan(entryFormData);
     console.log(response);
   };
 
-  //   const response = await fetch("/api/entries/user/65af7674dccd7f24cfa144fd", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       date: entryFormData.date,
-  //       exercise: entryFormData.exercise,
-  //       muscle: entryFormData.muscle,
-  //       reps: entryFormData.reps,
-  //       sets: entryFormData.sets,
-  //       weight: entryFormData.weight,
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   console.log({ evt, entryFormData });
-  //   if (response.ok) {
-  //     setEntryFormData(createEntry());
-  //   }
-  // };
-
-  const handleCalendarClick = () => {
-    // POST to add entry into MongoDB - Collection
-    console.log("calendar to be updated");
-  };
   return (
     <section>
       <div className="w-full bg-white rounded-lg shadow border border-jade-700 md:mt-0 sm:max-w-md xl:p-0">
@@ -189,7 +178,7 @@ export default function EntriesForm() {
                     id="distance"
                     placeholder="10"
                     className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    // value={entryFormData.distane}
+                    // value={entryFormData.distance}
                   />
                   km
                 </div>
@@ -217,14 +206,14 @@ export default function EntriesForm() {
               <button
                 type="submit"
                 className="w-full bg-jade-500"
-                onClick={handleProgressClick}
+                onClick={(evt) => handleProgressClick("progress", evt)}
               >
                 Add to Progress
               </button>
               <button
                 type="submit"
                 className="w-full bg-jade-500"
-                onClick={handleCalendarClick}
+                onClick={(evt) => handleProgressClick("calendar", evt)}
               >
                 Add to Calendar
               </button>
