@@ -20,7 +20,7 @@ export default function App() {
     <>
       {user ? (
         <>
-          <SideNavBar />
+          <SideNavBar setUser={setUser} />
           <div className="flex">
             <Routes>
               <Route path="/dashboard" element={<DashboardPage />} />

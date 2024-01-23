@@ -1,8 +1,46 @@
 import { useState } from "react";
+import { getUser } from "../utilities/users-service";
 
-export default function LoginForm({ setIsNewAccount }) {
+export default function LoginForm({ setIsNewAccount, setUser }) {
   const handleClick = () => {
     setIsNewAccount(true);
+  };
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (evt) => {
+    setFormData({
+      ...formData,
+      [evt.target.name]: evt.target.value,
+    });
+  };
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const token = await response.json();
+      localStorage.setItem("token", token.token);
+      setUser(getUser());
+    } else {
+      setError("Invalid credentials. Please try again.");
+    }
   };
 
   return (
@@ -13,7 +51,12 @@ export default function LoginForm({ setIsNewAccount }) {
             <h1 className="font-bold leading-tight tracking-tight md:text-2xl">
               Log in to your account:
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form
+              className="space-y-4 md:space-y-6"
+              action="#"
+              autoComplete="off"
+              onSubmit={handleSubmit}
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -27,6 +70,8 @@ export default function LoginForm({ setIsNewAccount }) {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
                   required=""
                 />
               </div>
@@ -43,6 +88,8 @@ export default function LoginForm({ setIsNewAccount }) {
                   id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  value={formData.password}
+                  onChange={handleChange}
                   required=""
                 />
               </div>
@@ -79,7 +126,7 @@ export default function LoginForm({ setIsNewAccount }) {
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{" "}
                 <span
-                  className="font-medium text-jade-500 hover:underline dark:text-primary-500"
+                  className="font-medium text-jade-500 cursor-pointer dark:text-primary-500"
                   onClick={handleClick}
                 >
                   Sign up

@@ -1,9 +1,14 @@
 import { NavLink } from "react-router-dom";
+import * as userService from "../utilities/users-service";
 
-export default function SideNavBar() {
-  const handleLogOut = () => {
-    //Code here to implement log out
-  };
+export default function SideNavBar({ setUser }) {
+  function handleLogOut() {
+    // Delegate to the users-service
+    userService.logOut();
+    // Update state will also cause a re-render
+    setUser(null);
+  }
+
   return (
     <>
       <nav
