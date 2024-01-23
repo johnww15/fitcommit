@@ -11,6 +11,12 @@ import FavouritesPage from "../FavouritesPage/FavouritesPage";
 
 export default function App() {
   const [user, setUser] = useState(false);
+  //to be used in RoulettePage and RouletteInputBar
+  const [selectedMuscle, setSelectedMuscle] = useState("");
+
+  const handleMuscleChange = (muscle) => {
+    setSelectedMuscle(muscle);
+  };
 
   const handleClick = () => {
     setUser(!user);
@@ -27,7 +33,15 @@ export default function App() {
               <Route path="/progress" element={<ProgressPage />} />
               <Route path="/progress/new" element={<EntriesPage />} />
               <Route path="/favourites" element={<FavouritesPage />} />
-              <Route path="/roulette" element={<RoulettePage />} />
+              <Route
+                path="/roulette"
+                element={
+                  <RoulettePage
+                    selectedMuscle={selectedMuscle}
+                    onMuscleChange={handleMuscleChange}
+                  />
+                }
+              />
               <Route path="/community" element={<CommunityPage />} />
             </Routes>
           </div>

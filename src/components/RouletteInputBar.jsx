@@ -1,22 +1,24 @@
 import { useState } from "react";
 
-export default function RouletteInputBar() {
+export default function RouletteInputBar({ onSearch }) {
   const [selectedMuscle, setSelectedMuscle] = useState("");
-  const [searchErrorMsg, setSearchErrorMsg] = useState({ error: "" });
-  const [rouletteResults, setRouletteResults] = useState([]);
+  // const [searchErrorMsg, setSearchErrorMsg] = useState({ error: "" });
+  // const [rouletteResults, setRouletteResults] = useState([]);
 
   const handleSelectChange = (event) => {
     console.log(`${event.target.value} is selected`);
     setSelectedMuscle(event.target.value);
   };
 
-  const handleClick = () => {
-    // alert("Search by muscle group button");
-  };
+  // const handleClick = () => {b
+  //   // alert("Search by muscle group button");
+  // };
 
   const handleSubmit = (event) => {
     //prevent a full page reload
     event.preventDefault();
+    console.log(selectedMuscle);
+    onSearch(selectedMuscle);
   };
 
   return (
@@ -26,12 +28,12 @@ export default function RouletteInputBar() {
         className="grid grid-cols-2 gap-10 items-center justify-center mx-auto lg:py-0"
         onSubmit={handleSubmit}
       >
-        <label
+        {/* <label
           htmlFor="default-search"
           className="text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
           Search
-        </label>
+        </label> */}
 
         <select
           id="muscle-group"
@@ -47,7 +49,7 @@ export default function RouletteInputBar() {
         <button
           type="submit"
           className=" bg-jade-500 block w-full p-2.5"
-          onClick={handleClick}
+          // onClick={handleClick}
         >
           Search
         </button>
