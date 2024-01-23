@@ -42,7 +42,7 @@ export default function SignUpForm({ setIsNewAccount }) {
       setFormData({ ...formData, error: "Something failed" });
     }
 
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/users/signup", {
       method: "POST",
       body: JSON.stringify(dataToSend),
       headers: {
