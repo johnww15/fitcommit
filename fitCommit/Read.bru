@@ -4,16 +4,16 @@ meta {
   seq: 2
 }
 
-get {
-  url: http://localhost:3000/entries/
+post {
+  url: http://localhost:3000/api/users/dashboard
   body: json
   auth: none
 }
 
 body:json {
   {
-    "user_name": "joey",
-    "user_email": "abcd@abcd.com",
-    "user_password": "123"
+    "name": "joey",
+    "email": "joey@gmail.com",
+    "password": "123"
   }
 }

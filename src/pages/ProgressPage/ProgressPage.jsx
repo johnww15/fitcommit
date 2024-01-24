@@ -24,9 +24,11 @@ export default function ProgressPage() {
   };
 
   return (
-    <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
+    <section className="w-1/2 items-center justify-center px-6 py-8 mx-auto lg:py-0">
       <h1>Charts by exercise</h1>
-      <ProgressChart />
+      <div className="h-full">
+        <ProgressChart />
+      </div>
       <button className="bg-jade-500" onClick={handleClick}>
         Add new entry
       </button>
