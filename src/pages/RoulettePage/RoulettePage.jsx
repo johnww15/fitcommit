@@ -3,7 +3,11 @@ import RouletteInputBar from "../../components/RouletteInputBar";
 import RouletteResults from "../../components/RouletteResults";
 import exercisesByMuscle from "../../assets/exercisesByMuscle";
 
-export default function RoulettePage({ selectedMuscle, onMuscleChange }) {
+export default function RoulettePage({
+  selectedMuscle,
+  onMuscleChange,
+  addToFavorites,
+}) {
   // const [rouletteResults, setRouletteResults] = useState("");
 
   const fetchByMuscle = exercisesByMuscle.filter(
@@ -19,7 +23,11 @@ export default function RoulettePage({ selectedMuscle, onMuscleChange }) {
       />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
         {fetchByMuscle.map((item, idx) => (
-          <RouletteResults key={idx} item={item} />
+          <RouletteResults
+            key={idx}
+            item={item}
+            addToFavorites={addToFavorites}
+          />
         ))}
       </div>
     </section>

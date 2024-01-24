@@ -1,13 +1,15 @@
 import { useState } from "react";
 import AddToCalendarModal from "./AddToCalendarModal";
 
-export default function RouletteResults({ item }) {
+export default function RouletteResults({ item, addToFavorites }) {
   const [showModal, setShowModal] = useState(false);
   const addToCal = () => {
     setShowModal(true);
   };
 
-  const addToFav = () => {};
+  const addToFav = () => {
+    addToFavorites(item);
+  };
 
   return (
     <div className="flex flex-col rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
