@@ -23,7 +23,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/users/dashboard", {
       method: "POST",
       body: JSON.stringify({
         email: formData.email,

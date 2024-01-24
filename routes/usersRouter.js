@@ -21,6 +21,6 @@ const router = express.Router();
 const usersController = require("../controllers/usersController");
 
 router.post("/signup", usersController.create);
-router.post("/login", usersController.login);
+router.post("/dashboard", usersController.login);
 
 module.exports = router;
