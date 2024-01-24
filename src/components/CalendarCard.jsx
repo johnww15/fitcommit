@@ -21,7 +21,11 @@ export default function CalendarCard() {
 
       {showModal && (
         <>
-          <PlanModal setShowModal={setShowModal} date={date} />
+          <PlanModal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            date={date}
+          />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>
       )}

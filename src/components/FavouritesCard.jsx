@@ -17,7 +17,7 @@ export default function FavouritesCard({ favorites }) {
       <div className="flex flex-col rounded-lg text-sm px-5 py-2.5 m-2 bg-zinc-800 border border-jade-700">
         <img className="object-cover h-32 w-full" src={favorites.img} />
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{favorites.name}</div>
+          <h1>{favorites.name}</h1>
           <p>{favorites.muscle}</p>
         </div>
         <div className="grid grid-cols-2 px-6 pt-4 pb-2 gap-5">

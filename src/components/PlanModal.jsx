@@ -1,10 +1,14 @@
 import EditPlanModal from "./EditPlanModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function PlanModal({ setShowModal, date }) {
+export default function PlanModal({ showModal, setShowModal, date }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
   const handleEditClick = () => {
+    setShowEditPlanModal(true);
+  };
+
+  const handleDeleteClick = () => {
     setShowEditPlanModal(true);
   };
 
@@ -33,25 +37,23 @@ export default function PlanModal({ setShowModal, date }) {
             </div>
             {/* CONVERT TO MAP FUNCTION*/}
             <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              <div>Exercise Name</div>
-              <div>Muscle</div>
+              <div>
+                Exercise Name - <span>Muscle</span>
+              </div>
+              <div>Weight - Reps - Sets</div>
+
               <button
                 className="bg-jade-500 px-1 py-1"
                 onClick={handleEditClick}
               >
                 Edit
               </button>
-            </div>
-
-            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              <div>Exercise Name</div>
-              <div>Muscle</div>
-              <button className="bg-jade-500 px-1 py-1">Edit</button>
-            </div>
-            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              <div>Exercise Name</div>
-              <div>Muscle</div>
-              <button className="bg-jade-500 px-1 py-1">Edit</button>
+              <button
+                className="bg-jade-500 px-1 py-1"
+                onClick={handleDeleteClick}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -59,6 +61,7 @@ export default function PlanModal({ setShowModal, date }) {
       {showEditPlanModal && (
         <>
           <EditPlanModal
+            showModal={showModal}
             setShowModal={setShowModal}
             setShowEditPlanModal={setShowEditPlanModal}
           />
