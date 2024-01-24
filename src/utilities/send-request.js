@@ -1,6 +1,6 @@
-// BRIDGE BETWEEN REACT & BACKEND
+// // BRIDGE BETWEEN REACT & BACKEND
 
-export sendRequest(url, method, payload){
+// export sendRequest(url, method, payload){
 
-    return fetch(url, options)
-}
+//     return fetch(url, options)
+// }

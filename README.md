@@ -8,7 +8,7 @@ At times when you need to makes notes for your own progress or if you have block
 
 ### 24-Jan
 
-1. To fit Jonathan's plansSchema's required field, I am going to edit the CalendarModal to include input fields for weight, sets, reps, etc.
+[x] To fit Jonathan's plansSchema's required field, I am going to edit the CalendarModal to include input fields for weight, sets, reps, etc. (30 mins)
 
 ### 22-Jan
 

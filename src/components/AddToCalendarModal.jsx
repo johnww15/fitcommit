@@ -18,9 +18,13 @@ export default function AddToCalendarModal({ setShowModal }) {
     alert("date is selected!");
   };
 
-  const handleAddDate = () => {
-    //CODE TO ADD TO ENTRIES DB
+  const handleAddDate = async () => {
+    //code to add to plansSchema
     setShowModal(false);
+
+    const updatedPlan = await plansAPI.addItemToPlan(itemId);
+
+    setPlanFormData(updatedPlan);
   };
 
   const handleChange = (evt) => {
