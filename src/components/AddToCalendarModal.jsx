@@ -1,4 +1,15 @@
+import { useState } from "react";
+
 export default function AddToCalendarModal({ setShowModal }) {
+  const [planFormData, setPlanFormData] = useState({
+    date: "",
+    exercise: "",
+    muscle: "",
+    reps: "",
+    sets: "",
+    weight: "",
+  });
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -7,9 +18,20 @@ export default function AddToCalendarModal({ setShowModal }) {
     alert("date is selected!");
   };
 
-  const handleAddDate = () => {
-    //CODE TO ADD TO ENTRIES DB
+  const handleAddDate = async () => {
+    //code to add to plansSchema
     setShowModal(false);
+
+    const updatedPlan = await plansAPI.addItemToPlan(itemId);
+
+    setPlanFormData(updatedPlan);
+  };
+
+  const handleChange = (evt) => {
+    setPlanFormData({
+      ...planFormData,
+      [evt.target.name]: evt.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
@@ -30,7 +52,7 @@ export default function AddToCalendarModal({ setShowModal }) {
               X<span className="sr-only">Close modal</span>
             </button>
           </div>
-          <form className="p-4 md:p-5" onSubmit={handleSubmit}>
+          <form className="space-y-4 p-4 md:p-5 " onSubmit={handleSubmit}>
             <div className="grid gap-4 mb-4 grid-cols-2">
               <div className="col-span-2 text-left">
                 <label className="block mb-2 text-sm font-medium">
@@ -45,13 +67,76 @@ export default function AddToCalendarModal({ setShowModal }) {
                 />
               </div>
             </div>
-            <button
-              type="button"
-              className="text-white inline-flex items-center bg-jade-500 hover:bg-jade-800 focus:ring-4 focus:outline-none focus:ring-zeal-300 font-medium rounded-lg px-5 py-2.5 text-center"
-              onClick={handleAddDate}
-            >
-              Add to Calendar
-            </button>
+
+            <div className="grid md:grid-cols-3 md:gap-6">
+              <div>
+                <label
+                  htmlFor="weight"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Weight:
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    name="weight"
+                    id="weight"
+                    placeholder="20"
+                    className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    value={planFormData.weight}
+                    onChange={handleChange}
+                    required=""
+                  />
+                  kg
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Repetitions:
+                </label>
+                <input
+                  type="number"
+                  name="reps"
+                  id="reps"
+                  placeholder="10"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  value={planFormData.reps}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="sets"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Sets:
+                </label>
+                <input
+                  type="number"
+                  name="sets"
+                  id="sets"
+                  placeholder="4"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  value={planFormData.sets}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              <button
+                type="button"
+                className="text-white inline-flex items-center bg-jade-500 hover:bg-jade-800 focus:ring-4 focus:outline-none focus:ring-zeal-300 font-medium rounded-lg px-5 py-2.5 text-center"
+                onClick={handleAddDate}
+              >
+                Add to Calendar
+              </button>
+            </div>
           </form>
         </div>
       </div>

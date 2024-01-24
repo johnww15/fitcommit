@@ -72,4 +72,12 @@ const planSchema = new Schema(
   }
 );
 
+//----- JOEY TRYING OUT -----//
+// New instance method for adding item to Plan
+// planSchema.methods.addItemToPlan = async function (itemId) {
+//   const plan = this;
+
+//   // Checking if item already exists in in plan might not be relevant
+// };
+
 module.exports = model("Plan", planSchema);
