@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { createPlan } from "../utilities/plans-service";
 
 export default function AddToCalendarModal({ setShowModal }) {
   const [planFormData, setPlanFormData] = useState({
     date: "",
-    exercise: "",
-    muscle: "",
+    exercise: "Bench Press",
+    muscle: "Chest",
     reps: "",
     sets: "",
     weight: "",
@@ -14,17 +15,22 @@ export default function AddToCalendarModal({ setShowModal }) {
     setShowModal(false);
   };
 
-  const handleSelectDate = () => {
-    alert("date is selected!");
+  const handleSelectDate = (evt) => {
+    setPlanFormData({
+      ...planFormData,
+      [evt.target.name]: evt.target.value,
+    });
+
+    // alert("date is selected!");
   };
 
-  const handleAddDate = async () => {
+  const handleAddToPlan = async () => {
     //code to add to plansSchema
+    const response = await createPlan(planFormData);
+    console.log(planFormData);
+
+    console.log(response);
     setShowModal(false);
-
-    const updatedPlan = await plansAPI.addItemToPlan(itemId);
-
-    setPlanFormData(updatedPlan);
   };
 
   const handleChange = (evt) => {
@@ -60,6 +66,7 @@ export default function AddToCalendarModal({ setShowModal }) {
                 </label>
                 <input
                   type="date"
+                  name="date"
                   id="date"
                   className="bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required=""
@@ -132,7 +139,7 @@ export default function AddToCalendarModal({ setShowModal }) {
               <button
                 type="button"
                 className="text-white inline-flex items-center bg-jade-500 hover:bg-jade-800 focus:ring-4 focus:outline-none focus:ring-zeal-300 font-medium rounded-lg px-5 py-2.5 text-center"
-                onClick={handleAddDate}
+                onClick={handleAddToPlan}
               >
                 Add to Calendar
               </button>
