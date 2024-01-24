@@ -23,7 +23,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    const response = await fetch("/api/users/dashboard", {
+    const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: formData.email,
@@ -39,7 +39,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
       localStorage.setItem("token", token.token);
       setUser(getUser());
     } else {
-      setError(error, "Invalid credentials. Please try again.");
+      setError("Invalid credentials. Please try again.");
     }
   };
 
