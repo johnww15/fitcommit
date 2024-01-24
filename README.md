@@ -6,6 +6,12 @@ At times when you need to makes notes for your own progress or if you have block
 
 ## Joey
 
+### 24-Jan
+
+[x] To fit Jonathan's plansSchema's required field, I am going to edit the CalendarModal to include input fields for weight, sets, reps, etc. (30 mins)
+
+### 22-Jan
+
 Defining REST API endpoints to extract particular data:
 
 Dashboard Page:

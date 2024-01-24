@@ -15,3 +15,10 @@ export async function createPlan(body) {
     // throw new Error("Create Event Error");
   }
 }
+
+// ---------- JOEY ADDED THIS TO TRY OUT BASED ON SEI NOTES ----------//
+// export function addItemToPlan(itemId) {
+//   return sendRequest(`${BASE_URL}/${itemId}`, "POST");
+// }
+
+// SEI notes: itemId is sent as a route parameter, instead of in the body

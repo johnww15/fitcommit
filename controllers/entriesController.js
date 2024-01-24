@@ -43,7 +43,7 @@ const entryIndexByExercise = async (req, res) => {
     })
       .sort({ date: -1 })
       .limit(limit);
-    res.json({ exerciseEntries });
+    res.json(exerciseEntries);
   } catch (error) {
     console.error(
       "error in entryIndexByExercise function in entryController file",
