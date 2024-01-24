@@ -6,7 +6,6 @@ export async function createEntry(body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  console.log("entries-api running");
   const json = await res.json();
   if (res.ok) {
     return json;
@@ -24,7 +23,6 @@ export async function getEntryByExercise() {
     }
   );
   const json = await res.json();
-  console.log("entries-api ran", res);
   if (res.ok) {
     return json;
   } else {

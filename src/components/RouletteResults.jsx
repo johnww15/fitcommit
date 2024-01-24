@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddToCalendarModal from "./AddToCalendarModal";
+import { createFavourite } from "../utilities/favourites-service";
 
 export default function RouletteResults({ item }) {
   const [showModal, setShowModal] = useState(false);
@@ -7,7 +8,10 @@ export default function RouletteResults({ item }) {
     setShowModal(true);
   };
 
-  const addToFav = () => {};
+  const addToFav = async () => {
+    const response = await createFavourite(item.name, item.muscle);
+    console.log(response);
+  };
 
   return (
     <div className="flex flex-col rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">

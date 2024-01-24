@@ -14,23 +14,6 @@ const favouriteSchema = new Schema(
       enum: muscleEnum,
       required: true,
     },
-    reps: {
-      type: Number,
-      default: 10,
-      min: 1,
-      required: true,
-    },
-    sets: {
-      type: Number,
-      default: 1,
-      min: 1,
-      required: true,
-    },
-    //! to consider how to flip between kg and lbs
-    weight: {
-      type: Number,
-      required: true,
-    },
     userId: [
       {
         type: Schema.Types.ObjectId,
