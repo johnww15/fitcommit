@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function RouletteInputBar({ onSearch }) {
-  const [selectedMuscle, setSelectedMuscle] = useState("");
+  const [selectedMuscle, setSelectedMuscle] = useState("Arms");
   // const [searchErrorMsg, setSearchErrorMsg] = useState({ error: "" });
   // const [rouletteResults, setRouletteResults] = useState([]);
 
