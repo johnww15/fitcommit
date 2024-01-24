@@ -4,6 +4,11 @@ import { progressData } from "../assets/test_data/test_progress_data";
 import { useEffect } from "react";
 import { getEntryByExercise } from "../utilities/entries-service";
 
+// ----- //
+// exercise/:exerciseName/:limit/:userId
+// if you search for "benchpress" => "BeNcHPrEss" !=> "Bench Press" (exerciseName)
+// limit => 5
+
 export default function ProgressChart() {
   useEffect(() => {
     (async function () {
