@@ -13,12 +13,13 @@ export default function FavouritesPage({ favorites }) {
   return (
     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
       <h1>My Saved Workouts</h1>
-
-      {favorites.map((favorites, idx) => (
-        <div key={idx} className="flex flex-col md:flex-row">
-          <FavouritesCard favorites={favorites} />
-        </div>
-      ))}
+      <div className="flex flex-col sm:flex-row">
+        {favorites.map((favorites, idx) => (
+          <div key={idx}>
+            <FavouritesCard favorites={favorites} />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

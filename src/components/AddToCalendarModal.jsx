@@ -49,7 +49,7 @@ export default function AddToCalendarModal({ setShowModal }) {
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative rounded-lg bg-zinc-900 shadow">
           <div className="flex items-center justify-between p-4 md:p-5 rounded-t">
-            <h1>Save to Calendar</h1>
+            <h1>Add to Calendar</h1>
             <button
               type="button"
               className="text-zinc-50 hover:bg-zinc-200 hover:text-zinc-900 rounded-lg w-8 h-8 ms-auto inline-flex justify-center items-center"

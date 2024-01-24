@@ -1,15 +1,18 @@
-import EditPlanModal from "./EditPlanModal";
 import { useState } from "react";
 
-export default function PlanModal({ setShowModal, date }) {
-  const [showEditPlanModal, setShowEditPlanModal] = useState(false);
+export default function EditPlanModal({ setShowModal, setShowEditPlanModal }) {
+  const [editPlan, setEditPlan] = useState({});
 
-  const handleEditClick = () => {
-    setShowEditPlanModal(true);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChange = (event) => {
+    event.preventDefault();
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    setEditPlan(false);
   };
 
   return (
@@ -55,16 +58,7 @@ export default function PlanModal({ setShowModal, date }) {
             </div>
           </div>
         </div>
-      </div>{" "}
-      {showEditPlanModal && (
-        <>
-          <EditPlanModal
-            setShowModal={setShowModal}
-            setShowEditPlanModal={setShowEditPlanModal}
-          />
-          <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
-        </>
-      )}
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function RouletteResults({ item, addToFavorites }) {
   const addToFav = async () => {
     const response = await createFavourite(item.name, item.muscle);
     console.log(response);
-  
+
     addToFavorites(item);
   };
 
@@ -22,7 +22,7 @@ export default function RouletteResults({ item, addToFavorites }) {
         <p>{item.muscle}</p>
         <h1>{item.name}</h1>
       </div>
-      <button onClick={addToCal} className="bg-jade-500 px-1.5 py-1">
+      <button onClick={addToCal} className="bg-jade-500 px-1.5 py-1 mb-2">
         + Calendar
       </button>
       <button onClick={addToFav} className="bg-jade-500 px-1.5 py-1">
