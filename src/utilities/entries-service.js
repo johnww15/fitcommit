@@ -15,8 +15,6 @@ export async function createEntry(entryFormData) {
 }
 
 export async function getEntryByExercise() {
-  console.log("entries-services running");
   const response = await entryAPI.getEntryByExercise();
-  console.log("entries-services ran");
   return response;
 }

@@ -1,6 +1,6 @@
-const BASE_URL = "/api/entries";
+const BASE_URL = "/api/favourites";
 
-export async function createEntry(body) {
+export async function createFavourite(body) {
   const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -15,13 +15,10 @@ export async function createEntry(body) {
   }
 }
 
-export async function getEntryByExercise() {
-  const res = await fetch(
-    BASE_URL + "/exercise/benchpress/5/65af7674dccd7f24cfa144fd",
-    {
-      headers: { "Content-Type": "application/json" },
-    }
-  );
+export async function getFavouriteByUserId() {
+  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+    headers: { "Content-Type": "application/json" },
+  });
   const json = await res.json();
   if (res.ok) {
     return json;
