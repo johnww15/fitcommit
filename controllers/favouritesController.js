@@ -30,6 +30,21 @@ const favouriteIndex = async (req, res) => {
   }
 };
 
+//function to get all favourite data by UserId
+const favouriteIndexByUserId = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const favourites = await Favourite.find({ userId: userId });
+    res.json({ favourites });
+  } catch (error) {
+    console.error(
+      "error in favouriteIndex function in favouritesController file",
+      error
+    );
+    res.status(500).json({ error: "favouriteIndex Internal Server Error" });
+  }
+};
+
 //function to delete a favourite data by favouriteId
 const favouriteDelete = async (req, res) => {
   const { favouriteId } = req.params;
@@ -58,4 +73,5 @@ module.exports = {
   favouriteIndex,
   favouriteCreate,
   favouriteDelete,
+  favouriteIndexByUserId,
 };

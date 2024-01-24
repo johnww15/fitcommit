@@ -14,3 +14,16 @@ export async function createFavourite(body) {
     // throw new Error("Create Event Error");
   }
 }
+
+export async function getFavouriteByUserId() {
+  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+    headers: { "Content-Type": "application/json" },
+  });
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+    // throw new Error("Create Event Error");
+  }
+}
