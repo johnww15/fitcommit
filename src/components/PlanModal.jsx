@@ -19,17 +19,25 @@ export default function PlanModal({ setShowModal, date }) {
             </button>
           </div>
           <div className="p-4 md:p-5">
-            <div className="py-2.5 mb-2">
+            <div className=" mb-2">
               <h2>{date.toLocaleString()}</h2>
             </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
+            {/* CONVERT TO MAP FUNCTION*/}
+            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+              <div>Exercise Name</div>
+              <div>Muscle</div>
+              <button className="bg-jade-500 px-1 py-1">Edit</button>
             </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
+
+            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+              <div>Exercise Name</div>
+              <div>Muscle</div>
+              <button className="bg-jade-500 px-1 py-1">Edit</button>
             </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
+            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+              <div>Exercise Name</div>
+              <div>Muscle</div>
+              <button className="bg-jade-500 px-1 py-1">Edit</button>
             </div>
           </div>
         </div>
