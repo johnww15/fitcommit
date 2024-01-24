@@ -1,6 +1,7 @@
 import ProgressChart from "../../components/ProgressChart";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ProgressSearchBar from "../../components/ProgressSearchBar";
 
 export default function ProgressPage() {
   // code from json-server (fake API) - to be moved to utilities entries-api.js
@@ -25,7 +26,7 @@ export default function ProgressPage() {
 
   return (
     <section className="w-1/2 items-center justify-center px-6 py-8 mx-auto lg:py-0">
-      <h1>Charts by exercise</h1>
+      <ProgressSearchBar />
       <div className="h-full">
         <ProgressChart />
       </div>
