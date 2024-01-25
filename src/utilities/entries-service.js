@@ -14,8 +14,8 @@ export async function createEntry(entryFormData) {
   return response;
 }
 
-export async function getEntryByExercise() {
-  const response = await entryAPI.getEntryByExercise();
+export async function getEntryByExercise(selectedExercise) {
+  const response = await entryAPI.getEntryByExercise(selectedExercise);
   return response;
 }
 

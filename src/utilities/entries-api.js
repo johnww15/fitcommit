@@ -15,10 +15,10 @@ export async function createEntry(body) {
   }
 }
 
-export async function getEntryByExercise() {
-  const query = "leg press";
+export async function getEntryByExercise(exercise) {
+  // console.log("entries-api", exercise);
   const res = await fetch(
-    BASE_URL + `/exercise/${query}/5/65af7674dccd7f24cfa144fd`,
+    BASE_URL + `/exercise/${exercise}/7/65af7674dccd7f24cfa144fd`,
     {
       headers: { "Content-Type": "application/json" },
     }
