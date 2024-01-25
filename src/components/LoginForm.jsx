@@ -38,6 +38,8 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
       const token = await response.json();
       localStorage.setItem("token", token.token);
       setUser(getUser());
+      console.log("Username:", username);
+      console.log("Email:", email);
     } else {
       setError("Invalid credentials. Please try again.");
     }
