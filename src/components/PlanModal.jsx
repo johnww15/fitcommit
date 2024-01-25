@@ -1,21 +1,20 @@
 import EditPlanModal from "./EditPlanModal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import PlanModalCard from "./PlanModalCard";
 
-export default function PlanModal({ showModal, setShowModal, date }) {
+export default function PlanModal({ plans, showModal, setShowModal, date }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
-  const handleEditClick = () => {
-    setShowEditPlanModal(true);
-  };
-
-  const handleDeleteClick = () => {
-    setShowEditPlanModal(true);
+  // WRITE LOGIC HERE TO FILTER OUT PLANS BY DATE
+  const dateToMatch = () => {
+    const formattedDate = date.toISOString();
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
+  console.log("plans on ");
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
       <div className="relative p-4 w-full max-w-md max-h-full">
@@ -35,26 +34,14 @@ export default function PlanModal({ showModal, setShowModal, date }) {
             <div className=" mb-2">
               <h2>{date.toLocaleString()}</h2>
             </div>
-            {/* CONVERT TO MAP FUNCTION*/}
-            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              <div>
-                Exercise Name - <span>Muscle</span>
-              </div>
-              <div>Weight - Reps - Sets</div>
 
-              <button
-                className="bg-jade-500 px-1 py-1"
-                onClick={handleEditClick}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-jade-500 px-1 py-1"
-                onClick={handleDeleteClick}
-              >
-                Delete
-              </button>
-            </div>
+            {plans.map((item, idx) => (
+              <PlanModalCard
+                key={idx}
+                item={item}
+                setShowEditPlanModal={setShowEditPlanModal}
+              />
+            ))}
           </div>
         </div>
       </div>{" "}
