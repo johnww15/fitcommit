@@ -16,6 +16,19 @@ export async function createPlan(body) {
   }
 }
 
+export async function fetchAllPlansById() {
+  const res = await fetch(BASE_URL + "/user/65af7674dccd7f24cfa144fd", {
+    headers: { "Content-Type": "application/json" },
+  });
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return res;
+    // throw new Error("Create Event Error");
+  }
+}
+
 // ---------- JOEY ADDED THIS TO TRY OUT BASED ON SEI NOTES ----------//
 // export function addItemToPlan(itemId) {
 //   return sendRequest(`${BASE_URL}/${itemId}`, "POST");
