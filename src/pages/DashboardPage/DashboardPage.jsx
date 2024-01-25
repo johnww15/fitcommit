@@ -20,15 +20,18 @@ export default function DashboardPage({ user }) {
   }, [user._id]);
 
   return (
-    <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
-      <h1>Dashboard</h1>
-      <CalendarCard plans={plans} setPlans={setPlans} />
-      <hr />
-      <h1>History of the past 5 exercises</h1>
-      <div className="grid grid-cols-5 gap-10">
-        {entries?.map((entry, idx) => (
-          <EntriesCard key={idx} entry={entry} user={user} />
-        ))}
+    <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+      <div className="flex flex-col items-center ">
+        <h1>Dashboard</h1>
+        <CalendarCard plans={plans} entries={entries} setPlans={setPlans} />
+      </div>
+      <div className="flex flex-col items-center p-5">
+        <h1>History of the past 5 exercises</h1>
+        <div className="grid grid-cols-5 px-6 py-8 gap-10">
+          {entries?.map((entry, idx) => (
+            <EntriesCard key={idx} entry={entry} />
+          ))}
+        </div>
       </div>
     </section>
   );

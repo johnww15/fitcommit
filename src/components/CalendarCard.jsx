@@ -3,10 +3,17 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import PlanModal from "./PlanModal";
 
-export default function CalendarCard({ plans, setPlans }) {
+export default function CalendarCard({
+  plans,
+  entries,
+  setPlans,
+  user,
+  setUser,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [date, setDate] = useState("");
-  const [scheduledDates, setScheduledDates] = useState([]);
+  const [scheduledPlanDates, setScheduledPlanDates] = useState([]);
+  const [scheduledEntriesDates, setScheduledEntriesDates] = useState([]);
 
   const handleClickDay = (event) => {
     // console.log("date before", date);
@@ -27,8 +34,8 @@ export default function CalendarCard({ plans, setPlans }) {
   // PLANS
 
   useEffect(() => {
-    const arrOfUniqueDates = () => {
-      const arrOfDates = plans.map((item) => item.date);
+    const arrOfUniqueDates = (array) => {
+      const arrOfDates = array.map((item) => item.date);
       let arr = [];
       for (let i = 0; i < arrOfDates.length; i++) {
         if (!arr.includes(arrOfDates[i])) {
@@ -43,10 +50,11 @@ export default function CalendarCard({ plans, setPlans }) {
       return arrOfFormattedDates;
     };
 
-    setScheduledDates(arrOfUniqueDates());
-  }, [plans]);
+    setScheduledPlanDates(arrOfUniqueDates(plans));
+    setScheduledEntriesDates(arrOfUniqueDates(entries));
+  }, [plans, entries]);
 
-  console.log("scheduledDates:", scheduledDates);
+  console.log("scheduledDates:", scheduledPlanDates, scheduledEntriesDates);
 
   function dateToYYYYMMDD(inputDateString) {
     const inputDate = new Date(inputDateString);
@@ -57,32 +65,26 @@ export default function CalendarCard({ plans, setPlans }) {
     return `${year}-${month}-${day}`;
   }
 
-  // const tileClassName = ({ date, view }) => {
-  //   const today = new Date();
-  //   today.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0
-
-  //   if (view === "month") {
-  //     if (date > today) {
-  //       return "future-date"; // Add a class for future dates
-  //     }
-  //   }
-
-  //   return null;
-  // };
-
   const tileContent = ({ date, view }) => {
-    console.log(
-      "datecontentofcaltile",
-      date,
-      dateToYYYYMMDD(date),
-      scheduledDates
-    );
-
-    if (view === "month" && scheduledDates.includes(dateToYYYYMMDD(date))) {
+    if (view === "month" && scheduledPlanDates.includes(dateToYYYYMMDD(date))) {
       return (
         <div
           style={{
-            backgroundColor: "green",
+            backgroundColor: "#89fa00",
+            borderRadius: "50%",
+            height: "10px",
+            width: "10px",
+          }}
+        ></div>
+      );
+    } else if (
+      view === "month" &&
+      scheduledEntriesDates.includes(dateToYYYYMMDD(date))
+    ) {
+      return (
+        <div
+          style={{
+            backgroundColor: "#3a6c08",
             borderRadius: "50%",
             height: "10px",
             width: "10px",
@@ -93,18 +95,46 @@ export default function CalendarCard({ plans, setPlans }) {
   };
 
   return (
-    <div className=" items-center justify-center px-6 py-8 mx-auto lg:py-0 w-13/4">
+    <div className=" items-center justify-center px-6 py-8 mx-auto lg:py-0 w-full">
       <Calendar
-        className="rounded-lg bg-zinc-800 justify-center text-center "
+        className="rounded-lg bg-zinc-800 justify-center p-5 m-5 text-center "
         onClickDay={handleClickDay}
         tileContent={tileContent}
         tileClassName={({ date, view }) =>
           view === "month" &&
-          scheduledDates.includes(date.toISOString().split("T")[0])
+          scheduledPlanDates.includes(date.toISOString().split("T")[0])
             ? "scheduled"
             : null
         }
       />
+      <div className="flex justify-center">
+        <div className="p-2">
+          <span
+            style={{
+              backgroundColor: "#3a6c08",
+              borderRadius: "50%",
+              height: "10px",
+              width: "10px",
+              display: "inline-block",
+            }}
+          ></span>{" "}
+          History
+        </div>
+        <div className="p-2">
+          {" "}
+          <span
+            style={{
+              backgroundColor: "#89fa00",
+              borderRadius: "50%",
+              height: "10px",
+              width: "10px",
+              display: "inline-block",
+            }}
+          ></span>{" "}
+          Plans
+        </div>
+      </div>
+
       {showModal && (
         <>
           <PlanModal
