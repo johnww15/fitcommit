@@ -12,7 +12,7 @@ export default function DashboardPage() {
       const responseEntries = await fetchAllEntriesById();
       const responsePlans = await fetchAllPlansById();
       console.log("entries", responseEntries);
-      entries = responseEntries;
+      setEntries(responseEntries);
       console.log("plans", responsePlans);
     })();
   }, []);
@@ -24,8 +24,8 @@ export default function DashboardPage() {
       <hr />
       <h1>History of the past 5 exercises</h1>
       <div className="grid grid-cols-5 gap-10">
-        {entries?.map((item, idx) => (
-          <EntriesCard key={idx} item={item} />
+        {entries?.map((entry, idx) => (
+          <EntriesCard key={idx} entry={entry} />
         ))}
       </div>
     </section>
