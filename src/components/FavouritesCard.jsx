@@ -2,7 +2,12 @@ import { useState } from "react";
 import AddToCalendarModal from "./AddToCalendarModal";
 import { deleteFavourite } from "../utilities/favourites-service";
 
-export default function FavouritesCard({ favourites, setFavItems }) {
+export default function FavouritesCard({
+  favourites,
+  setFavItems,
+  user,
+  setUser,
+}) {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {

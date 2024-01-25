@@ -30,17 +30,33 @@ export default function App() {
   console.log(user);
   return (
     <>
+      <header>{user?.name}</header>
       {user ? (
         <>
           <SideNavBar setUser={setUser} />
           <div className="flex">
             <Routes>
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/progress" element={<ProgressPage />} />
-              <Route path="/progress/new" element={<EntriesPage />} />
+              <Route
+                path="/dashboard"
+                element={<DashboardPage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/progress"
+                element={<ProgressPage user={user} setUser={setUser} />}
+              />
+              <Route
+                path="/progress/new"
+                element={<EntriesPage user={user} setUser={setUser} />}
+              />
               <Route
                 path="/favourites"
-                element={<FavouritesPage favorites={favorites} />}
+                element={
+                  <FavouritesPage
+                    favorites={favorites}
+                    user={user}
+                    setUser={setUser}
+                  />
+                }
               />
               <Route
                 path="/roulette"
@@ -49,10 +65,15 @@ export default function App() {
                     selectedMuscle={selectedMuscle}
                     onMuscleChange={handleMuscleChange}
                     addToFavorites={addToFavorites}
+                    user={user}
+                    setUser={setUser}
                   />
                 }
               />
-              <Route path="/community" element={<CommunityPage />} />
+              <Route
+                path="/community"
+                element={<CommunityPage user={user} setUser={setUser} />}
+              />
             </Routes>
           </div>
         </>

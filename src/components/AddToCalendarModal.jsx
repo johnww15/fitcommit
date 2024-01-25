@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPlan } from "../utilities/plans-service";
 
-export default function AddToCalendarModal({ setShowModal }) {
+export default function AddToCalendarModal({ setShowModal, user, setUser }) {
   const [planFormData, setPlanFormData] = useState({
     date: "",
     exercise: "Bench Press",

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ProgressSearchBar from "../../components/ProgressSearchBar";
 import { getEntryByExercise } from "../../utilities/entries-service";
 
-export default function ProgressPage() {
+export default function ProgressPage({ user, setUser }) {
   const [defaultOption, setDefaultOption] = useState("Bench Press"); // Set the default value here
   const [selectedExercise, setSelectedExercise] = useState("");
   const [progressData, setProgressData] = useState([]);

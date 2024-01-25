@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getUser } from "../utilities/users-service";
 
-export default function LoginForm({ setIsNewAccount, setUser }) {
+export default function LoginForm({ setIsNewAccount, setUser, user }) {
   const handleClick = () => {
     setIsNewAccount(true);
   };
@@ -39,7 +39,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
       localStorage.setItem("token", token.token);
       setUser(getUser());
     } else {
-      setError("Invalid credentials. Please try again.");
+      setError("Invalid username or password. Please try again.");
     }
   };
 
@@ -132,6 +132,7 @@ export default function LoginForm({ setIsNewAccount, setUser }) {
                   Sign up
                 </span>
               </p>
+              {error && <p className="text-red-500">{error}</p>}
             </form>
           </div>
         </div>

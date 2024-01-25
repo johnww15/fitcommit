@@ -2,7 +2,14 @@ import EditPlanModal from "./EditPlanModal";
 import { useState } from "react";
 import PlanModalCard from "./PlanModalCard";
 
-export default function PlanModal({ plans, showModal, setShowModal, date }) {
+export default function PlanModal({
+  plans,
+  showModal,
+  setShowModal,
+  date,
+  user,
+  setUser,
+}) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
   //Multiple functions to set date field

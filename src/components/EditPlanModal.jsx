@@ -5,6 +5,8 @@ export default function EditPlanModal({
   showModal,
   setShowModal,
   setShowEditPlanModal,
+  user,
+  setUser,
 }) {
   const [entryFormData, setEntryFormData] = useState({
     date: "",

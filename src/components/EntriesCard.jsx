@@ -1,4 +1,4 @@
-export default function EntriesCard({ entry }) {
+export default function EntriesCard({ entry, user, setUser }) {
   const formatDate = (dateString) => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
       day: "numeric",
