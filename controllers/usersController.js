@@ -130,7 +130,6 @@ const login = async (req, res) => {
     const check = await bcrypt.compare(data.password, user.password);
     if (!check) {
       res.status(401).json({ msg: "wrong password" });
-      window.alert("Password do not not exist!");
       return;
     }
 

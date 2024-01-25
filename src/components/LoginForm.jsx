@@ -39,7 +39,7 @@ export default function LoginForm({ setIsNewAccount, setUser, user }) {
       localStorage.setItem("token", token.token);
       setUser(getUser());
     } else {
-      setError("Invalid credentials. Please try again.");
+      setError("Invalid username or password. Please try again.");
     }
   };
 
@@ -132,6 +132,7 @@ export default function LoginForm({ setIsNewAccount, setUser, user }) {
                   Sign up
                 </span>
               </p>
+              {error && <p className="text-red-500">{error}</p>}
             </form>
           </div>
         </div>
