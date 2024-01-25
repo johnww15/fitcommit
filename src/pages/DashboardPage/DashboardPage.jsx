@@ -5,13 +5,6 @@ import EntriesCard from "../../components/EntriesCard";
 export default function DashboardPage() {
   const [entries, setEntries] = useState([]);
 
-  useEffect(() => {
-    (async function () {
-      const response = await getFavouriteByUserId();
-      console.log(response);
-    })();
-  }, []);
-
   return (
     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
       <h1>Dashboard</h1>

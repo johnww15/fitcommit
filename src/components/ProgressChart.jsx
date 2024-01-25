@@ -1,13 +1,6 @@
 import { Bar, Line } from "react-chartjs-2";
 import { Chart as Chartjs } from "chart.js/auto";
 // import { progressData } from "../assets/test_data/test_progress_data";
-import { useEffect, useState } from "react";
-import { getEntryByExercise } from "../utilities/entries-service";
-
-// ----- //
-// exercise/:exerciseName/:limit/:userId
-// if you search for "benchpress" => "BeNcHPrEss" !=> "Bench Press" (exerciseName)
-// limit => 5
 
 export default function ProgressChart({ defaultOption, progressData }) {
   console.log("Default Option", defaultOption);
@@ -20,6 +13,17 @@ export default function ProgressChart({ defaultOption, progressData }) {
     });
     return formattedDate;
   };
+
+  const findMaxWeight = () => {
+    const arrOfWeights = progressData.map((data) => data.weight);
+    arrOfWeights.sort((a, b) => a - b);
+    const maxWeight = arrOfWeights[arrOfWeights.length - 1];
+    console.log("maxweight", arrOfWeights, maxWeight);
+
+    return maxWeight * 1.2;
+  };
+
+  findMaxWeight();
 
   return (
     <>
@@ -44,9 +48,9 @@ export default function ProgressChart({ defaultOption, progressData }) {
               align: "start",
             },
             legend: { display: false },
-            scales: {
-              y: { min: 0, max: 50 },
-            },
+          },
+          scales: {
+            y: { min: 0, max: findMaxWeight },
           },
         }}
       />
