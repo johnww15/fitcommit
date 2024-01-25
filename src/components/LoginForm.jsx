@@ -132,7 +132,7 @@ export default function LoginForm({ setIsNewAccount, setUser, user }) {
                   Sign up
                 </span>
               </p>
-              {error && <p className="text-red-500">{error}</p>}
+              {error && <p className="text-jade-500">{error}</p>}
             </form>
           </div>
         </div>
