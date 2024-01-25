@@ -2,22 +2,17 @@ import CalendarCard from "../../components/CalendarCard";
 import { useState, useEffect } from "react";
 import EntriesCard from "../../components/EntriesCard";
 import { fetchAllEntriesById } from "../../utilities/entries-service";
+import { fetchAllPlansById } from "../../utilities/plans-service";
 
 export default function DashboardPage() {
   const [entries, setEntries] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchAllEntriesById() {
-  //     const response = await fetchAllEntriesById();
-  //     console.log(response);
-  //   }
-  //   fetchAllEntries();
-  // }, []);
-
   useEffect(() => {
     (async function () {
-      const response = await fetchAllEntriesById();
-      console.log(response);
+      const responseEntries = await fetchAllEntriesById();
+      const responsePlans = await fetchAllPlansById();
+      console.log("entries", responseEntries);
+      console.log("plans", responsePlans);
     })();
   }, []);
 
