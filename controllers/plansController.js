@@ -48,8 +48,25 @@ const planDelete = async (req, res) => {
   }
 };
 
+const planIndexById = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const Plans = await Plan.find({
+      userId: userId,
+    }).sort({ date: -1 });
+    res.json(Plans);
+  } catch (error) {
+    console.error(
+      "error in planIndexById function in planController file",
+      error
+    );
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   planIndex,
   planCreate,
   planDelete,
+  planIndexById,
 };

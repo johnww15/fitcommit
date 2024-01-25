@@ -11,6 +11,10 @@ export async function createPlan(entryFormData) {
   };
 
   const response = await planAPI.createPlan(body);
-  console.log("plans-services running");
+  return response;
+}
+
+export async function fetchAllPlansById() {
+  const response = await planAPI.fetchAllPlansById();
   return response;
 }

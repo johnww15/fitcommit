@@ -1,25 +1,9 @@
 import { Bar, Line } from "react-chartjs-2";
 import { Chart as Chartjs } from "chart.js/auto";
 // import { progressData } from "../assets/test_data/test_progress_data";
-import { useEffect, useState } from "react";
-import { getEntryByExercise } from "../utilities/entries-service";
 
-// ----- //
-// exercise/:exerciseName/:limit/:userId
-// if you search for "benchpress" => "BeNcHPrEss" !=> "Bench Press" (exerciseName)
-// limit => 5
-
-export default function ProgressChart() {
-  const [progressData, setProgressData] = useState([]);
-
-  useEffect(() => {
-    async function fetchEntries() {
-      const response = await getEntryByExercise();
-      console.log(response);
-      setProgressData(response);
-    }
-    fetchEntries();
-  }, []);
+export default function ProgressChart({ defaultOption, progressData }) {
+  console.log("Default Option", defaultOption);
 
   const formatDate = (dateString) => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
@@ -30,14 +14,16 @@ export default function ProgressChart() {
     return formattedDate;
   };
 
-  // const date = new Date(inputDateString);
-  // const formattedDate = date.toLocaleDateString('en-GB', {
-  //   day: 'numeric',
-  //   month: 'short',
-  //   year: '2-digit',
-  // });
+  const findMaxWeight = () => {
+    const arrOfWeights = progressData.map((data) => data.weight);
+    arrOfWeights.sort((a, b) => a - b);
+    const maxWeight = arrOfWeights[arrOfWeights.length - 1];
+    console.log("maxweight", arrOfWeights, maxWeight);
 
-  // console.log(formattedDate);
+    return maxWeight * 1.2;
+  };
+
+  findMaxWeight();
 
   return (
     <>
@@ -62,6 +48,9 @@ export default function ProgressChart() {
               align: "start",
             },
             legend: { display: false },
+          },
+          scales: {
+            y: { min: 0, max: findMaxWeight },
           },
         }}
       />
