@@ -6,10 +6,10 @@ export default function PlanModal({ plans, showModal, setShowModal, date }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
   //Multiple functions to set date field
-  const formattedDate = new Date(date);
-  formattedDate.setUTCHours(0, 0, 0, 0);
-  formattedDate.setUTCDate(formattedDate.getUTCDate() + 1);
-  const clickedDate = formattedDate.toISOString();
+  const fDate = new Date(date);
+  fDate.setUTCHours(0, 0, 0, 0);
+  fDate.setUTCDate(fDate.getUTCDate() + 1);
+  const clickedDate = fDate.toISOString();
 
   const dateToMatch = (plans) => {
     return plans.filter((plan) => {
@@ -20,6 +20,15 @@ export default function PlanModal({ plans, showModal, setShowModal, date }) {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const formatDate = (dateString) => {
+    const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "2-digit",
+    });
+    return formattedDate;
   };
 
   return (
@@ -39,7 +48,7 @@ export default function PlanModal({ plans, showModal, setShowModal, date }) {
           </div>
           <div className="p-4 md:p-5">
             <div className=" mb-2">
-              <h2>{date.toLocaleString()}</h2>
+              <h2>{formatDate(date)}</h2>
             </div>
 
             {plansForSelectedDay.map((item, idx) => (
@@ -58,6 +67,7 @@ export default function PlanModal({ plans, showModal, setShowModal, date }) {
             showModal={showModal}
             setShowModal={setShowModal}
             setShowEditPlanModal={setShowEditPlanModal}
+            date={date}
           />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>
