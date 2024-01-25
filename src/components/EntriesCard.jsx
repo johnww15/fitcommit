@@ -10,11 +10,10 @@ export default function EntriesCard({ entry, user, setUser }) {
 
   return (
     <>
-      <div className="rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+      <div className="rounded-lg text-sm px-5 py-2.5">
         {/* <h1>{formatDate(entry.date)}</h1> */}
-        <h1>
-          {entry.exercise} - {entry.weight}kg
-        </h1>
+        <h2>{entry.exercise}</h2>
+        <p>{entry.weight} kg</p>
       </div>
     </>
   );

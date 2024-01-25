@@ -59,17 +59,21 @@ export default function DashboardPage({ user }) {
       </div>
 
       <div className="flex flex-col items-center p-5">
-        <h1>History of the past 5 exercises</h1>
-        {mostRecentDays.map((dateKey, idx) => (
-          <div key={idx}>
-            <h2>{formatDate(dateKey)}</h2>
-            <div className="grid grid-cols-5 px-6 py-8 gap-10">
-              {entriesByDay[dateKey]?.map((entry, entryIdx) => (
-                <EntriesCard key={entryIdx} entry={entry} user={user} />
-              ))}
+        <div>
+          <h1>History of the past 5 exercises</h1>
+        </div>
+        <div className="grid grid-rows-5 items-center justify-center ">
+          {mostRecentDays.map((dateKey, idx) => (
+            <div key={idx} className="px-5 py-5">
+              <h1 className="mb-2 ">{formatDate(dateKey)}</h1>
+              <div className="flex flex-row rounded-lg bg-zinc-800 border border-jade-700">
+                {entriesByDay[dateKey]?.map((entry, entryIdx) => (
+                  <EntriesCard key={entryIdx} entry={entry} user={user} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
