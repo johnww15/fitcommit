@@ -10,9 +10,9 @@ export default function PlanModalCard({
     setPlanModalCardId(item._id);
   };
 
-  const handleDeleteClick = () => {
-    setShowEditPlanModal(true);
-  };
+  // const handleDeleteClick = () => {
+  //   setShowEditPlanModal(true);
+  // };
 
   return (
     <div className="rounded-lg grid grid-rows-2 items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
@@ -23,14 +23,14 @@ export default function PlanModalCard({
         <span>{item.muscle}</span>
       </div>
 
-      <div className="flex items-end justify-between gap-5 text-jade-700">
+      <div className="flex items-end w-full ustify-between gap-5 text-jade-700">
         Weight: {item.weight} | Reps: {item.reps} | Sets: {item.sets}{" "}
         <button className="bg-jade-500 px-1 py-1" onClick={handleEditClick}>
           Edit
         </button>{" "}
-        <button className="bg-jade-500 px-1 py-1" onClick={handleDeleteClick}>
+        {/* <button className="bg-jade-500 px-1 py-1" onClick={handleDeleteClick}>
           Delete
-        </button>
+        </button> */}
       </div>
     </div>
   );
