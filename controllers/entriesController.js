@@ -77,9 +77,28 @@ const entryDelete = async (req, res) => {
   }
 };
 
+const entryIndexById = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const Entries = await Entry.find({
+      userId: userId,
+    })
+      .sort({ date: -1 })
+    res.json(Entries);
+  } catch (error) {
+    console.error(
+      "error in entryIndexById function in entryController file",
+      error
+    );
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+
 module.exports = {
   entryIndex,
   entryCreate,
   entryDelete,
   entryIndexByExercise,
+  entryIndexById,
 };

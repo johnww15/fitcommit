@@ -18,3 +18,8 @@ export async function getEntryByExercise() {
   const response = await entryAPI.getEntryByExercise();
   return response;
 }
+
+export async function fetchAllEntriesById() {
+  const response = await entryAPI.fetchAllEntriesById();
+  return response;
+}

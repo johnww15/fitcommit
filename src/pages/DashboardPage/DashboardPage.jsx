@@ -1,9 +1,25 @@
 import CalendarCard from "../../components/CalendarCard";
 import { useState, useEffect } from "react";
 import EntriesCard from "../../components/EntriesCard";
+import { fetchAllEntriesById } from "../../utilities/entries-service";
 
 export default function DashboardPage() {
   const [entries, setEntries] = useState([]);
+
+  // useEffect(() => {
+  //   async function fetchAllEntriesById() {
+  //     const response = await fetchAllEntriesById();
+  //     console.log(response);
+  //   }
+  //   fetchAllEntries();
+  // }, []);
+
+  useEffect(() => {
+    (async function () {
+      const response = await fetchAllEntriesById();
+      console.log(response);
+    })();
+  }, []);
 
   return (
     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">

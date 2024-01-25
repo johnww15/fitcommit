@@ -18,7 +18,6 @@ export default function CalendarCard() {
         className="rounded-lg bg-zinc-800 justify-center text-center "
         onClickDay={handleClickDay}
       />
-
       {showModal && (
         <>
           <PlanModal
