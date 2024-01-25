@@ -13,38 +13,15 @@ export default function FavouritesPage() {
     })();
   }, []);
 
-  //can remove it since you already have it elsewhereg
-  const BASE_URL = "/api/favourites";
-
-  const handleDelete = async (_id) => {
-    const response = await fetch(BASE_URL + `/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // Show pop-up message
-    window.alert("Removed from Favourites!");
-
-    if (response.ok) {
-      setFavItems((prevFavs) =>
-        prevFavs.filter((favorites) => favorites._id !== _id)
-      );
-    }
-  };
-
   console.log(favItems);
 
   return (
     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
       <h1>My Saved Workouts</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:flex-row">
-        {favItems.map((favorites, idx) => (
+        {favItems.map((favourites, idx) => (
           <div key={idx}>
-            <FavouritesCard
-            favorites={favorites}
-            onDelete={() => handleDelete(favorites._id)}
-          />
+            <FavouritesCard favourites={favourites} setFavItems={setFavItems} />
           </div>
         ))}
       </div>

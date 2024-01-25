@@ -27,3 +27,17 @@ export async function getFavouriteByUserId() {
     // throw new Error("Create Event Error");
   }
 }
+
+export async function deleteFavourite(id) {
+  const res = await fetch(BASE_URL + `/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+  const json = await res.json();
+  if (res.ok) {
+    return json;
+  } else {
+    return json;
+    // throw new Error("Create Event Error");
+  }
+}

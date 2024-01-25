@@ -59,7 +59,7 @@ const favouriteDelete = async (req, res) => {
     //   return res.status(403).json({ error: "Unauthorised User Request" });
     // }
     await Favourite.findByIdAndDelete(favouriteId);
-    res.json({ msg: "Favourite successfully deleted" });
+    res.json({ deletedFavourite });
   } catch (error) {
     console.error(
       "error in favouriteDelete function in favouriteController file",

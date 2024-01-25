@@ -15,3 +15,8 @@ export async function getFavouriteByUserId() {
   const response = await favouriteAPI.getFavouriteByUserId();
   return response;
 }
+
+export async function deleteFavourite(id) {
+  const response = await favouriteAPI.deleteFavourite(id);
+  return response;
+}
