@@ -8,8 +8,8 @@ export default function FavouritesPage() {
   useEffect(() => {
     (async function () {
       const response = await getFavouriteByUserId();
-      console.log("testing", response);
       setFavItems(response.favourites);
+      console.log("check", response.favourites);
     })();
   }, []);
 
@@ -28,16 +28,3 @@ export default function FavouritesPage() {
     </section>
   );
 }
-
-//   return (
-//     <section className="items-center justify-center px-6 py-8 mx-auto lg:py-0">
-//       <h1>My Saved Workouts</h1>
-
-//       {favorites.map((favorites, idx) => (
-//         <div key={idx} className="flex flex-col md:flex-row">
-//           <FavouritesCard favorites={favorites} />
-//         </div>
-//       ))}
-//     </section>
-//   );
-// }

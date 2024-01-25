@@ -12,13 +12,18 @@ export default function FavouritesCard({ favourites, setFavItems }) {
   const handleDelete = async (id) => {
     const response = await deleteFavourite(id);
 
-    if (response.ok) {
-      setFavItems((prevFavs) =>
-        prevFavs.filter(
-          (favourites) => favourites._id !== response.deletedFavourite?._id
-        )
-      );
-    }
+    // Show pop-up message
+    window.alert("Removed from Favourites!");
+
+    console.log(response);
+
+    console.log("HandleDelete", response.deletedFavourite._id);
+    setFavItems((prevItems) =>
+      prevItems.filter((favourites) => {
+        console.log(favourites._id, response.deletedFavourite._id);
+        return favourites._id !== response.deletedFavourite._id;
+      })
+    );
   };
 
   return (
