@@ -1,7 +1,7 @@
 import EditPlanModal from "./EditPlanModal";
 import { useState, useEffect } from "react";
 
-export default function PlanModal({ showModal, setShowModal, date }) {
+export default function PlanModal({ plans, showModal, setShowModal, date }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
   const handleEditClick = () => {
@@ -16,6 +16,7 @@ export default function PlanModal({ showModal, setShowModal, date }) {
     setShowModal(false);
   };
 
+  console.log("plans on ");
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
       <div className="relative p-4 w-full max-w-md max-h-full">
@@ -36,25 +37,36 @@ export default function PlanModal({ showModal, setShowModal, date }) {
               <h2>{date.toLocaleString()}</h2>
             </div>
             {/* CONVERT TO MAP FUNCTION*/}
-            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              <div>
-                Exercise Name - <span>Muscle</span>
-              </div>
-              <div>Weight - Reps - Sets</div>
 
-              <button
-                className="bg-jade-500 px-1 py-1"
-                onClick={handleEditClick}
+            {plans.map((item, idx) => (
+              <div
+                key={idx}
+                className="rounded-lg grid grid-rows-2 items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700"
               >
-                Edit
-              </button>
-              <button
-                className="bg-jade-500 px-1 py-1"
-                onClick={handleDeleteClick}
-              >
-                Delete
-              </button>
-            </div>
+                <div>
+                  <span className=" text-jade-500 text-xl font-bold leading-tight tracking-tight md:text-2xl">
+                    {item.exercise}
+                  </span>{" "}
+                  <span>{item.muscle}</span>
+                </div>
+
+                <div className="flex items-end justify-between gap-5 text-jade-700">
+                  Weight: {item.weight} | Reps: {item.reps} | Sets: {item.sets}{" "}
+                  <button
+                    className="bg-jade-500 px-1 py-1"
+                    onClick={handleEditClick}
+                  >
+                    Edit
+                  </button>{" "}
+                  <button
+                    className="bg-jade-500 px-1 py-1"
+                    onClick={handleDeleteClick}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>{" "}
