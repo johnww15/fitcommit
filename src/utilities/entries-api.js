@@ -16,7 +16,7 @@ export async function createEntry(body) {
 }
 
 export async function getEntryByExercise(exercise) {
-  console.log("entries-api", exercise);
+  // console.log("entries-api", exercise);
   const res = await fetch(
     BASE_URL + `/exercise/${exercise}/7/65af7674dccd7f24cfa144fd`,
     {

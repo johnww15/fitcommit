@@ -39,7 +39,7 @@ export default function ProgressSearchBar({
           <option value="Bench Press">Bench Press</option>
           <option value="Bicep Curl">Bicep Curl</option>
           <option value="Leg Press">Leg Press</option>
-          <option value="Tricep Pushdown">Tricep Pushdown</option>
+          <option value="Tricep Push Down">Tricep Push Down</option>
         </select>
 
         <button

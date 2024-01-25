@@ -44,6 +44,9 @@ export default function ProgressChart({ defaultOption, progressData }) {
               align: "start",
             },
             legend: { display: false },
+            scales: {
+              y: { min: 0, max: 50 },
+            },
           },
         }}
       />
