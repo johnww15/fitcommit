@@ -29,7 +29,7 @@ export default function DashboardPage({ user, setUser }) {
       <h1>History of the past 5 exercises</h1>
       <div className="grid grid-cols-5 gap-10">
         {entries?.map((entry, idx) => (
-          <EntriesCard key={idx} entry={entry} user={user} />
+          <EntriesCard key={idx} entry={entry}  />
         ))}
       </div>
     </section>
