@@ -14,6 +14,10 @@ const favouriteSchema = new Schema(
       enum: muscleEnum,
       required: true,
     },
+    img: {
+      type: String,
+      required: true,
+    },
     userId: [
       {
         type: Schema.Types.ObjectId,

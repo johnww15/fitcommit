@@ -9,7 +9,7 @@ export default function RouletteResults({ item }) {
   };
 
   const addToFav = async () => {
-    const response = await createFavourite(item.name, item.muscle);
+    const response = await createFavourite(item.name, item.muscle, item.img);
     console.log(response);
   };
 
