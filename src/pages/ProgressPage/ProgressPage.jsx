@@ -4,38 +4,30 @@ import { useNavigate } from "react-router-dom";
 import ProgressSearchBar from "../../components/ProgressSearchBar";
 import { getEntryByExercise } from "../../utilities/entries-service";
 
-export default function ProgressPage({ user, setUser }) {
+export default function ProgressPage({ user }) {
   const [defaultOption, setDefaultOption] = useState("Bench Press"); // Set the default value here
   const [selectedExercise, setSelectedExercise] = useState("");
   const [progressData, setProgressData] = useState([]);
   const navigate = useNavigate();
-
+  const limit = 7;
   // Lifted state from child ProgressSearchBar
 
   useEffect(() => {
     (async function () {
-      const response = await getEntryByExercise(defaultOption);
-      console.log(response);
+      const response = await getEntryByExercise(defaultOption, limit, user._id);
       setProgressData(response);
     })();
-  }, []);
+  }, [defaultOption, limit, user._id]);
 
   const handleSearch = async () => {
     console.log("app page:", selectedExercise);
-    const response = await getEntryByExercise(selectedExercise);
+    const response = await getEntryByExercise(
+      selectedExercise,
+      limit,
+      user._id
+    );
 
     setProgressData(response);
-
-    console.log(
-      "response:",
-      response,
-      "exercise:",
-      selectedExercise,
-      "repsonse:",
-      response,
-      "progress data",
-      progressData
-    );
   };
 
   // use effect to fetch defaul chart

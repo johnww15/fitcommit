@@ -7,10 +7,12 @@ export default function PlanModal({
   showModal,
   setShowModal,
   date,
-  user,
-  setUser,
+  // user,
+  // setUser,
+  setPlans,
 }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
+  const [planModalCardId, setPlanModalCardId] = useState("");
 
   //Multiple functions to set date field
   const fDate = new Date(date);
@@ -63,6 +65,7 @@ export default function PlanModal({
                 key={idx}
                 item={item}
                 setShowEditPlanModal={setShowEditPlanModal}
+                setPlanModalCardId={setPlanModalCardId}
               />
             ))}
           </div>
@@ -75,6 +78,9 @@ export default function PlanModal({
             setShowModal={setShowModal}
             setShowEditPlanModal={setShowEditPlanModal}
             date={date}
+            planModalCardId={planModalCardId}
+            setPlans={setPlans}
+            plans={plans}
           />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>

@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { updatePlan } from "../utilities/plans-service";
 
 export default function EditPlanModal({
   date,
   showModal,
   setShowModal,
   setShowEditPlanModal,
-  user,
-  setUser,
+  // user,
+  // setUser,
+  planModalCardId,
+  setPlans,
+  plans,
 }) {
   const [entryFormData, setEntryFormData] = useState({
     date: "",
@@ -26,12 +30,20 @@ export default function EditPlanModal({
     return formattedDate;
   };
 
-  const handleChange = (event) => {
-    event.preventDefault();
+  const handleChange = (evt) => {
+    setEntryFormData({
+      ...entryFormData,
+      [evt.target.name]: evt.target.value,
+    });
   };
 
-  const handleEditClick = () => {
-    alert("entry updated");
+  const handleEditClick = async () => {
+    console.log("id", planModalCardId);
+    const response = await updatePlan(planModalCardId, entryFormData);
+    const Index = plans.findIndex((plan) => plan._id == planModalCardId);
+    let newPlans = [...plans];
+    newPlans[Index] = response.updatingPlan;
+    setPlans(newPlans);
     setShowEditPlanModal(false);
   };
 

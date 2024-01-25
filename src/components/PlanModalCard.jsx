@@ -1,11 +1,13 @@
 export default function PlanModalCard({
   item,
   setShowEditPlanModal,
-  user,
-  setUser,
+  // user,
+  // setUser,
+  setPlanModalCardId,
 }) {
   const handleEditClick = () => {
     setShowEditPlanModal(true);
+    setPlanModalCardId(item._id);
   };
 
   const handleDeleteClick = () => {

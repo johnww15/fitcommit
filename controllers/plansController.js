@@ -64,9 +64,41 @@ const planIndexById = async (req, res) => {
   }
 };
 
+const planUpdate = async (req, res) => {
+  const { planId } = req.params;
+  const data = { ...req.body, planId };
+  console.log("planUpdate running", data, "planId", planId);
+  try {
+    const updatingPlan = await Plan.findById(planId);
+    //find if entry exists, return error 404 if entry doesn't exist
+    if (!updatingPlan) {
+      return res.status(404).json({ error: "Entry not found" });
+    }
+    //check if user updating is the owner of the entry, if it isn't prevent action
+    // if (!updatingPlan.userId === userId) {
+    //   return res.status(403).json({ error: "Unauthorised User Request" });
+    // }
+    updatingPlan.exercise = data.exercise;
+    updatingPlan.muscle = data.muscle;
+    updatingPlan.reps = data.reps;
+    updatingPlan.sets = data.sets;
+    updatingPlan.weight = data.weight;
+    await updatingPlan.save();
+
+    res.json({ updatingPlan });
+  } catch (error) {
+    console.error(
+      "error in planUpdate function in planController file",
+      error
+    );
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   planIndex,
   planCreate,
   planDelete,
   planIndexById,
+  planUpdate,
 };
