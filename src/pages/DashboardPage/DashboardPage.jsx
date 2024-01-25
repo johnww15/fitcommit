@@ -12,6 +12,7 @@ export default function DashboardPage() {
       const responseEntries = await fetchAllEntriesById();
       const responsePlans = await fetchAllPlansById();
       console.log("entries", responseEntries);
+      entries = responseEntries;
       console.log("plans", responsePlans);
     })();
   }, []);
