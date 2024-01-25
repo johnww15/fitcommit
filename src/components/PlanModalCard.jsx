@@ -1,4 +1,9 @@
-export default function PlanModalCard({ item, setShowEditPlanModal }) {
+export default function PlanModalCard({
+  item,
+  setShowEditPlanModal,
+  user,
+  setUser,
+}) {
   const handleEditClick = () => {
     setShowEditPlanModal(true);
   };

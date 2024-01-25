@@ -1,4 +1,4 @@
-export default function EntriesCard({ item }) {
+export default function EntriesCard({ item, user, setUser }) {
   return (
     <>
       <div className="rounded-lg text-sm px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">

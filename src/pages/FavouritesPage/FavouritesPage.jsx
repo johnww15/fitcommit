@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import FavouritesCard from "../../components/FavouritesCard";
 import { getFavouriteByUserId } from "../../utilities/favourites-service";
 
-export default function FavouritesPage() {
+export default function FavouritesPage({ user, setUser }) {
   const [favItems, setFavItems] = useState([]);
 
   useEffect(() => {

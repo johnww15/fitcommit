@@ -6,6 +6,8 @@ export default function ProgressSearchBar({
   defaultOption,
   selectedExercise,
   setSelectedExercise,
+  user,
+  setUser,
 }) {
   const handleSubmit = (event) => {
     //prevent a full page reload

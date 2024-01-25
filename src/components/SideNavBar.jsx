@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import * as userService from "../utilities/users-service";
 
-export default function SideNavBar({ setUser }) {
+export default function SideNavBar({ user, setUser }) {
   function handleLogOut() {
     // Delegate to the users-service
     userService.logOut();

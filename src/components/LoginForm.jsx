@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getUser } from "../utilities/users-service";
 
-export default function LoginForm({ setIsNewAccount, setUser }) {
+export default function LoginForm({ setIsNewAccount, setUser, user, setUser }) {
   const handleClick = () => {
     setIsNewAccount(true);
   };

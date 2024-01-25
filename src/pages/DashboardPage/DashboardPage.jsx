@@ -4,7 +4,7 @@ import EntriesCard from "../../components/EntriesCard";
 import { fetchAllEntriesById } from "../../utilities/entries-service";
 import { fetchAllPlansById } from "../../utilities/plans-service";
 
-export default function DashboardPage() {
+export default function DashboardPage({ user, setUser }) {
   const [entries, setEntries] = useState([]);
   const [plans, setPlans] = useState([]);
 

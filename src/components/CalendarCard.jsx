@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import PlanModal from "./PlanModal";
 
-export default function CalendarCard({ plans }) {
+export default function CalendarCard({ plans, user, setUser }) {
   const [showModal, setShowModal] = useState(false);
   const [date, setDate] = useState("");
 

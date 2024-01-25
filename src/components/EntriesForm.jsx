@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createEntry } from "../utilities/entries-service";
 import { createPlan } from "../utilities/plans-service";
 
-export default function EntriesForm() {
+export default function EntriesForm(user, setUser) {
   const [entryFormData, setEntryFormData] = useState({
     date: "",
     exercise: "",

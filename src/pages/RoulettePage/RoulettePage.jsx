@@ -7,6 +7,8 @@ export default function RoulettePage({
   selectedMuscle,
   onMuscleChange,
   addToFavorites,
+  user,
+  setUser,
 }) {
   // const [rouletteResults, setRouletteResults] = useState("");
 

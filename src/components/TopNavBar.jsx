@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export default function TopNavBar() {
+export default function TopNavBar(user, setUser) {
   return (
     <nav className=" bg-zinc-900">
       <div className="max-w-screen-xl bg-zinc-900 flex flex-wrap items-center justify-between mx-auto p-4">

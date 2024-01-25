@@ -2,7 +2,12 @@ import { useState } from "react";
 import AddToCalendarModal from "./AddToCalendarModal";
 import { createFavourite } from "../utilities/favourites-service";
 
-export default function RouletteResults({ item, addToFavorites }) {
+export default function RouletteResults({
+  item,
+  addToFavorites,
+  user,
+  setUser,
+}) {
   const [showModal, setShowModal] = useState(false);
   const addToCal = () => {
     setShowModal(true);
