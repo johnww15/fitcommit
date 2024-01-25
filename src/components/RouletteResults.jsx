@@ -2,7 +2,7 @@ import { useState } from "react";
 import AddToCalendarModal from "./AddToCalendarModal";
 import { createFavourite } from "../utilities/favourites-service";
 
-export default function RouletteResults({ item }) {
+export default function RouletteResults({ item, addToFavorites }) {
   const [showModal, setShowModal] = useState(false);
   const addToCal = () => {
     setShowModal(true);
@@ -11,6 +11,8 @@ export default function RouletteResults({ item }) {
   const addToFav = async () => {
     const response = await createFavourite(item.name, item.muscle, item.img);
     console.log(response);
+
+    addToFavorites(item);
   };
 
   return (
@@ -20,7 +22,7 @@ export default function RouletteResults({ item }) {
         <p>{item.muscle}</p>
         <h1>{item.name}</h1>
       </div>
-      <button onClick={addToCal} className="bg-jade-500 px-1.5 py-1">
+      <button onClick={addToCal} className="bg-jade-500 px-1.5 py-1 mb-2">
         + Calendar
       </button>
       <button onClick={addToFav} className="bg-jade-500 px-1.5 py-1">

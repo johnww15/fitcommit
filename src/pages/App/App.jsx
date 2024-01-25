@@ -13,6 +13,7 @@ export default function App() {
   const [user, setUser] = useState(false);
   //to be used in RoulettePage and RouletteInputBar
   const [selectedMuscle, setSelectedMuscle] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
   const handleMuscleChange = (muscle) => {
     setSelectedMuscle(muscle);
@@ -20,6 +21,10 @@ export default function App() {
 
   const handleClick = () => {
     setUser(!user);
+  };
+
+  const addToFavorites = (item) => {
+    setFavorites((prevFavorites) => [...prevFavorites, item]);
   };
 
   return (
@@ -32,13 +37,17 @@ export default function App() {
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/progress" element={<ProgressPage />} />
               <Route path="/progress/new" element={<EntriesPage />} />
-              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route
+                path="/favourites"
+                element={<FavouritesPage favorites={favorites} />}
+              />
               <Route
                 path="/roulette"
                 element={
                   <RoulettePage
                     selectedMuscle={selectedMuscle}
                     onMuscleChange={handleMuscleChange}
+                    addToFavorites={addToFavorites}
                   />
                 }
               />

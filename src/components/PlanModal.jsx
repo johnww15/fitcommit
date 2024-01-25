@@ -1,4 +1,17 @@
-export default function PlanModal({ setShowModal, date }) {
+import EditPlanModal from "./EditPlanModal";
+import { useState, useEffect } from "react";
+
+export default function PlanModal({ showModal, setShowModal, date }) {
+  const [showEditPlanModal, setShowEditPlanModal] = useState(false);
+
+  const handleEditClick = () => {
+    setShowEditPlanModal(true);
+  };
+
+  const handleDeleteClick = () => {
+    setShowEditPlanModal(true);
+  };
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
@@ -19,21 +32,42 @@ export default function PlanModal({ setShowModal, date }) {
             </button>
           </div>
           <div className="p-4 md:p-5">
-            <div className="py-2.5 mb-2">
+            <div className=" mb-2">
               <h2>{date.toLocaleString()}</h2>
             </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
-            </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
-            </div>
-            <div className="rounded-lg px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
-              Exercise Name - <span>Muscle</span>
+            {/* CONVERT TO MAP FUNCTION*/}
+            <div className="rounded-lg flex items-center justify-between px-5 py-2.5 mb-2 bg-zinc-800 border border-jade-700">
+              <div>
+                Exercise Name - <span>Muscle</span>
+              </div>
+              <div>Weight - Reps - Sets</div>
+
+              <button
+                className="bg-jade-500 px-1 py-1"
+                onClick={handleEditClick}
+              >
+                Edit
+              </button>
+              <button
+                className="bg-jade-500 px-1 py-1"
+                onClick={handleDeleteClick}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </div>{" "}
+      {showEditPlanModal && (
+        <>
+          <EditPlanModal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            setShowEditPlanModal={setShowEditPlanModal}
+          />
+          <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
+        </>
+      )}
     </div>
   );
 }

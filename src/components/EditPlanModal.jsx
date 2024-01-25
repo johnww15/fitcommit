@@ -1,55 +1,42 @@
-import { useState } from "react";
-import { createPlan } from "../utilities/plans-service";
+import { useEffect, useState } from "react";
 
-export default function AddToCalendarModal({ setShowModal }) {
-  const [planFormData, setPlanFormData] = useState({
-    date: "",
-    exercise: "Bench Press",
-    muscle: "Chest",
+export default function EditPlanModal({
+  showModal,
+  setShowModal,
+  setShowEditPlanModal,
+}) {
+  const [entryFormData, setEntryFormData] = useState({
+    date: "2014-10-10",
+    exercise: "",
+    muscle: "",
     reps: "",
     sets: "",
     weight: "",
   });
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleSelectDate = (evt) => {
-    setPlanFormData({
-      ...planFormData,
-      [evt.target.name]: evt.target.value,
-    });
-
-    // alert("date is selected!");
-  };
-
-  const handleAddToPlan = async () => {
-    //code to add to plansSchema
-    const response = await createPlan(planFormData);
-    console.log(planFormData);
-
-    console.log(response);
-    setShowModal(false);
-  };
-
-  const handleChange = (evt) => {
-    setPlanFormData({
-      ...planFormData,
-      [evt.target.name]: evt.target.value,
-    });
-  };
-
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
     event.preventDefault();
   };
 
+  const handleEditClick = () => {
+    alert("entry updated");
+    setShowEditPlanModal(false);
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+  };
+
+  const handleCloseModal = () => {
+    setShowEditPlanModal(false);
+  };
+
   return (
-    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative rounded-lg bg-zinc-900 shadow">
           <div className="flex items-center justify-between p-4 md:p-5 rounded-t">
-            <h1>Add to Calendar</h1>
+            <h1>Edit Workout</h1>
             <button
               type="button"
               className="text-zinc-50 hover:bg-zinc-200 hover:text-zinc-900 rounded-lg w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -58,23 +45,54 @@ export default function AddToCalendarModal({ setShowModal }) {
               X<span className="sr-only">Close modal</span>
             </button>
           </div>
-          <form className="space-y-4 p-4 md:p-5 " onSubmit={handleSubmit}>
-            <div className="grid gap-4 mb-4 grid-cols-2">
-              <div className="col-span-2 text-left">
-                <label className="block mb-2 text-sm font-medium">
-                  Pick a date:
+          <div className="p-4 md:p-5">
+            <h2>{entryFormData.date}</h2>
+          </div>
+          <form
+            className="space-y-4 md:space-y-6 m-5 pb-5"
+            onSubmit={handleSubmit}
+          >
+            <div className="grid md:grid-cols-2 md:gap-6">
+              <div>
+                <label
+                  htmlFor="workout-name"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Name of workout:
                 </label>
+
                 <input
-                  type="date"
-                  name="date"
-                  id="date"
-                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  type="text"
+                  name="exercise"
+                  id="exercise"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Bench Press"
+                  value={entryFormData.exercise}
+                  onChange={handleChange}
                   required=""
-                  onChange={handleSelectDate}
                 />
+              </div>{" "}
+              <div>
+                <label
+                  htmlFor="workout-muscle"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Muscle
+                </label>
+                <select
+                  id="muscle"
+                  name="muscle"
+                  className="bg-zinc-50 border border-zinc-300 text-zinc-900 rounded-lg focus:ring-jade-500 focus:border-jade-500 block w-full p-2.5"
+                  value={entryFormData.muscle}
+                  onChange={handleChange}
+                >
+                  <option value="Arms">Arms</option>
+                  <option value="Back">Back</option>
+                  <option value="Chest">Chest</option>
+                  <option value="Legs">Legs</option>
+                </select>
               </div>
             </div>
-
             <div className="grid md:grid-cols-3 md:gap-6">
               <div>
                 <label
@@ -90,14 +108,13 @@ export default function AddToCalendarModal({ setShowModal }) {
                     id="weight"
                     placeholder="20"
                     className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    value={planFormData.weight}
+                    value={entryFormData.weight}
                     onChange={handleChange}
                     required=""
                   />
                   kg
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="password"
@@ -111,11 +128,10 @@ export default function AddToCalendarModal({ setShowModal }) {
                   id="reps"
                   placeholder="10"
                   className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  value={planFormData.reps}
+                  value={entryFormData.reps}
                   onChange={handleChange}
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="sets"
@@ -129,19 +145,16 @@ export default function AddToCalendarModal({ setShowModal }) {
                   id="sets"
                   placeholder="4"
                   className="bg-zinc-50 border border-zinc-300 text-zinc-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  value={planFormData.sets}
+                  value={entryFormData.sets}
                   onChange={handleChange}
                 />
               </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-5">
               <button
-                type="button"
-                className="text-white inline-flex items-center bg-jade-500 hover:bg-jade-800 focus:ring-4 focus:outline-none focus:ring-zeal-300 font-medium rounded-lg px-5 py-2.5 text-center"
-                onClick={handleAddToPlan}
+                type="submit"
+                className="bg-jade-500"
+                onClick={handleEditClick}
               >
-                Add to Calendar
+                Update
               </button>
             </div>
           </form>
