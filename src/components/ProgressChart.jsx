@@ -9,17 +9,8 @@ import { getEntryByExercise } from "../utilities/entries-service";
 // if you search for "benchpress" => "BeNcHPrEss" !=> "Bench Press" (exerciseName)
 // limit => 5
 
-export default function ProgressChart() {
-  const [progressData, setProgressData] = useState([]);
-
-  useEffect(() => {
-    async function fetchEntries() {
-      const response = await getEntryByExercise();
-      console.log(response);
-      setProgressData(response);
-    }
-    fetchEntries();
-  }, []);
+export default function ProgressChart({ defaultOption, progressData }) {
+  console.log("Default Option", defaultOption);
 
   const formatDate = (dateString) => {
     const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
@@ -29,15 +20,6 @@ export default function ProgressChart() {
     });
     return formattedDate;
   };
-
-  // const date = new Date(inputDateString);
-  // const formattedDate = date.toLocaleDateString('en-GB', {
-  //   day: 'numeric',
-  //   month: 'short',
-  //   year: '2-digit',
-  // });
-
-  // console.log(formattedDate);
 
   return (
     <>
@@ -62,6 +44,9 @@ export default function ProgressChart() {
               align: "start",
             },
             legend: { display: false },
+            scales: {
+              y: { min: 0, max: 50 },
+            },
           },
         }}
       />

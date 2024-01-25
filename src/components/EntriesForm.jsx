@@ -53,7 +53,7 @@ export default function EntriesForm() {
                   Name of workout:
                 </label>
 
-                <input
+                <select
                   type="text"
                   name="exercise"
                   id="exercise"
@@ -62,7 +62,12 @@ export default function EntriesForm() {
                   value={entryFormData.exercise}
                   onChange={handleChange}
                   required=""
-                />
+                >
+                  <option value="Bench Press">Bench Press</option>
+                  <option value="Bicep Curl">Bicep Curl</option>
+                  <option value="Leg Press">Leg Press</option>
+                  <option value="Tricep Push Down">Tricep Push Down</option>
+                </select>
               </div>{" "}
               <div>
                 <label

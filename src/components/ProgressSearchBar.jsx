@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getEntryByExercise } from "../utilities/entries-service";
 
-export default function ProgressSearchBar() {
-  const [exercise, setExercise] = useState();
-
+export default function ProgressSearchBar({
+  handleSearch,
+  defaultOption,
+  selectedExercise,
+  setSelectedExercise,
+}) {
   const handleSubmit = (event) => {
     //prevent a full page reload
+    console.log("disabled");
     event.preventDefault();
   };
 
   const handleSelectChange = (event) => {
-    console.log(`${event.target.value} is selected`);
-    setExercise(event.target.value);
+    setSelectedExercise(event.target.value);
+    console.log("etv-", event.target.value);
   };
 
-  const handleClick = () => {};
+  const handleClick = async () => {
+    handleSearch();
+    console.log("selectedExercise-", selectedExercise);
+  };
 
   return (
     <section className="px-6 py-8">
@@ -25,12 +33,13 @@ export default function ProgressSearchBar() {
         <select
           id="muscle-group"
           className="bg-zinc-50 border border-zinc-300 text-zinc-900 rounded-lg focus:ring-jade-500 focus:border-jade-500 block w-full p-2.5"
+          value={selectedExercise}
           onChange={handleSelectChange}
         >
           <option value="Bench Press">Bench Press</option>
           <option value="Bicep Curl">Bicep Curl</option>
           <option value="Leg Press">Leg Press</option>
-          <option value="Tricep Pushdown">Tricep Pushdown</option>
+          <option value="Tricep Push Down">Tricep Push Down</option>
         </select>
 
         <button
