@@ -18,3 +18,17 @@ export async function fetchAllPlansById() {
   const response = await planAPI.fetchAllPlansById();
   return response;
 }
+
+export async function updatePlan(planId, updatePlanBody) {
+  const planBody = {
+    date: updatePlanBody.date,
+    exercise: updatePlanBody.exercise,
+    muscle: updatePlanBody.muscle,
+    reps: updatePlanBody.reps,
+    sets: updatePlanBody.sets,
+    weight: updatePlanBody.weight,
+  };
+  console.log("plansservice", planBody);
+  const response = await planAPI.updatePlan(planId, planBody);
+  return response;
+}

@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import PlanModal from "./PlanModal";
 
-export default function CalendarCard({ plans, user, setUser }) {
+export default function CalendarCard({ plans, setPlans, user, setUser }) {
   const [showModal, setShowModal] = useState(false);
   const [date, setDate] = useState("");
 
@@ -35,6 +35,7 @@ export default function CalendarCard({ plans, user, setUser }) {
             setShowModal={setShowModal}
             plans={plans}
             date={date}
+            setPlans={setPlans}
           />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>

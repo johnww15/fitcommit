@@ -82,8 +82,7 @@ const entryIndexById = async (req, res) => {
   try {
     const Entries = await Entry.find({
       userId: userId,
-    })
-      .sort({ date: -1 })
+    }).sort({ date: -1 });
     res.json(Entries);
   } catch (error) {
     console.error(
@@ -93,7 +92,6 @@ const entryIndexById = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 
 module.exports = {
   entryIndex,
