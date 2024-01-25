@@ -10,7 +10,7 @@ export async function createEntry(body, id) {
   if (res.ok) {
     return json;
   } else {
-    return json;
+    return res;
     // throw new Error("Create Event Error");
   }
 }

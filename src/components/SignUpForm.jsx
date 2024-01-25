@@ -160,7 +160,7 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                   />
                 </div>
                 <div className="flex items-start">
-                  <div className="flex items-center h-5">
+                  {/* <div className="flex items-center h-5">
                     <input
                       id="terms"
                       aria-describedby="terms"
@@ -179,7 +179,7 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                         Terms and Conditions
                       </a>
                     </label>
-                  </div>
+                  </div> */}
                 </div>
                 <button
                   type="submit"
