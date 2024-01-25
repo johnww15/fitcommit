@@ -27,6 +27,7 @@ export default function App() {
     setFavorites((prevFavorites) => [...prevFavorites, item]);
   };
 
+  console.log(user);
   return (
     <>
       <header>{user?.name}</header>

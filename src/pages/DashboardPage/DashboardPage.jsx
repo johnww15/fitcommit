@@ -16,8 +16,8 @@ export default function DashboardPage({ user, setUser }) {
       console.log("plans", responsePlans);
       setEntries(responseEntries);
       setPlans(responsePlans);
-      console.log("entries", responseEntries, entries);
-      console.log("plans", responsePlans, plans);
+      console.log("entries", responseEntries);
+      console.log("plans", responsePlans);
     })();
   }, []);
 
@@ -28,8 +28,8 @@ export default function DashboardPage({ user, setUser }) {
       <hr />
       <h1>History of the past 5 exercises</h1>
       <div className="grid grid-cols-5 gap-10">
-        {entries?.map((item, idx) => (
-          <EntriesCard key={idx} item={item} />
+        {entries?.map((entry, idx) => (
+          <EntriesCard key={idx} entry={entry} />
         ))}
       </div>
     </section>

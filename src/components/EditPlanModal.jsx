@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function EditPlanModal({
+  date,
   showModal,
   setShowModal,
   setShowEditPlanModal,
@@ -8,13 +9,22 @@ export default function EditPlanModal({
   setUser,
 }) {
   const [entryFormData, setEntryFormData] = useState({
-    date: "2014-10-10",
+    date: "",
     exercise: "",
     muscle: "",
     reps: "",
     sets: "",
     weight: "",
   });
+
+  const formatDate = (dateString) => {
+    const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "2-digit",
+    });
+    return formattedDate;
+  };
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -48,7 +58,7 @@ export default function EditPlanModal({
             </button>
           </div>
           <div className="p-4 md:p-5">
-            <h2>{entryFormData.date}</h2>
+            <h2>{formatDate(date)}</h2>
           </div>
           <form
             className="space-y-4 md:space-y-6 m-5 pb-5"

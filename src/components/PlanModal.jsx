@@ -21,6 +21,15 @@ export default function PlanModal({
     setShowModal(false);
   };
 
+  const formatDate = (dateString) => {
+    const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "2-digit",
+    });
+    return formattedDate;
+  };
+
   console.log("plans on ");
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -39,7 +48,7 @@ export default function PlanModal({
           </div>
           <div className="p-4 md:p-5">
             <div className=" mb-2">
-              <h2>{date.toLocaleString()}</h2>
+              <h2>{formatDate(date)}</h2>
             </div>
 
             {plans.map((item, idx) => (
@@ -58,6 +67,7 @@ export default function PlanModal({
             showModal={showModal}
             setShowModal={setShowModal}
             setShowEditPlanModal={setShowEditPlanModal}
+            date={date}
           />
           <div className="opacity-25 fixed inset-0 z-40 bg-zinc-50"></div>
         </>
