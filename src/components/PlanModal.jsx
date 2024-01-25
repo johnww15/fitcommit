@@ -5,16 +5,23 @@ import PlanModalCard from "./PlanModalCard";
 export default function PlanModal({ plans, showModal, setShowModal, date }) {
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
 
-  // WRITE LOGIC HERE TO FILTER OUT PLANS BY DATE
-  const dateToMatch = () => {
-    const formattedDate = date.toISOString();
+  //Multiple functions to set date field
+  const formattedDate = new Date(date);
+  formattedDate.setUTCHours(0, 0, 0, 0);
+  formattedDate.setUTCDate(formattedDate.getUTCDate() + 1);
+  const clickedDate = formattedDate.toISOString();
+
+  const dateToMatch = (plans) => {
+    return plans.filter((plan) => {
+      return plan.date === clickedDate;
+    });
   };
+  const plansForSelectedDay = dateToMatch(plans);
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
-  console.log("plans on ");
   return (
     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
       <div className="relative p-4 w-full max-w-md max-h-full">
@@ -35,7 +42,7 @@ export default function PlanModal({ plans, showModal, setShowModal, date }) {
               <h2>{date.toLocaleString()}</h2>
             </div>
 
-            {plans.map((item, idx) => (
+            {plansForSelectedDay.map((item, idx) => (
               <PlanModalCard
                 key={idx}
                 item={item}
