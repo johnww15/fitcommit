@@ -8,30 +8,48 @@ export default function DashboardPage({ user }) {
   const [entries, setEntries] = useState([]);
   const [plans, setPlans] = useState([]);
 
+  const formatDate = (dateString) => {
+    const formattedDate = new Date(dateString).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "2-digit",
+    });
+    return formattedDate;
+  };
+
   useEffect(() => {
     (async function () {
       const responseEntries = await fetchAllEntriesById(user._id);
       const responsePlans = await fetchAllPlansById(user._id);
-      // console.log("entries", responseEntries);
-      // console.log("plans", responsePlans);
       setEntries(responseEntries);
       setPlans(responsePlans);
     })();
   }, [user._id]);
 
-  // Filter for dates that is today or earlier
-  const today = new Date();
-  const filteredEntries = entries.filter(
-    (entry) => new Date(entry.date) <= today
-  );
-
-  // Sort entries from newest to oldest date
-  const sortedEntries = filteredEntries.sort(
+  //with some help from chatgpt
+  //Sort entries by date in descending order
+  const sortedEntries = entries.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  // Only get the lastest 5 entries
-  const last5Entries = sortedEntries.slice(0, 5);
+  //Take the 5 most recent days
+  const mostRecentDays = Array.from(
+    new Set(sortedEntries.map((entry) => entry.date))
+  ).slice(0, 5);
+
+  //Organize entries into arrays for each day
+  const entriesByDay = {};
+  sortedEntries.forEach((entry) => {
+    const dateKey = entry.date;
+
+    if (!entriesByDay[dateKey]) {
+      entriesByDay[dateKey] = [];
+    }
+    entriesByDay[dateKey].push(entry);
+  });
+
+  // Now, entriesByDay will be an object where keys are dates and values are arrays of entries for each of the 5 most recent days
+  console.log(entriesByDay);
 
   return (
     <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
@@ -39,14 +57,38 @@ export default function DashboardPage({ user }) {
         <h1>Dashboard</h1>
         <CalendarCard plans={plans} entries={entries} setPlans={setPlans} />
       </div>
+
       <div className="flex flex-col items-center p-5">
         <h1>History of the past 5 exercises</h1>
-        <div className="grid grid-cols-5 px-6 py-8 gap-10">
-          {last5Entries?.map((entry, idx) => (
-            <EntriesCard key={idx} entry={entry} user={user} />
-          ))}
-        </div>
+        {mostRecentDays.map((dateKey, idx) => (
+          <div key={idx}>
+            <h2>{formatDate(dateKey)}</h2>
+            <div className="grid grid-cols-5 px-6 py-8 gap-10">
+              {entriesByDay[dateKey]?.map((entry, entryIdx) => (
+                <EntriesCard key={entryIdx} entry={entry} user={user} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
+
+//   return (
+//     <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+//       <div className="flex flex-col items-center ">
+//         <h1>Dashboard</h1>
+//         <CalendarCard plans={plans} entries={entries} setPlans={setPlans} />
+//       </div>
+//       <div className="flex flex-col items-center p-5">
+//         <h1>History of the past 5 exercises</h1>
+//         <div className="grid grid-cols-5 px-6 py-8 gap-10">
+//           {entries?.map((entry, idx) => (
+//             <EntriesCard key={idx} entry={entry} />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
