@@ -20,6 +20,12 @@ function createJWT(user) {
 const create = async (req, res) => {
   const data = req.body;
 
+  const currUserEmail = await User.findOne({ email: data.email });
+
+  if (currUserEmail) {
+    return res.status(400).json({ error: "Email already in use" });
+  }
+
   console.log(data);
 
   if (data.password.trim().length < 3) {
@@ -35,7 +41,8 @@ const create = async (req, res) => {
     const token = createJWT(user);
     res.status(201).json({ token });
   } catch (error) {
-    res.status(500).json({ error });
+    // res.status(500).json({ error });
+    res.status(500).json({ error: "Error creating user" });
   }
 };
 

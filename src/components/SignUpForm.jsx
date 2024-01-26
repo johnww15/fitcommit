@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { signUp } from "../utilities/users-service";
 
-export default function SignUpForm({ setIsNewAccount, user, setUser }) {
+export default function SignUpForm({ setIsNewAccount }) {
   const handleClick = () => {
     setIsNewAccount(false);
   };
@@ -25,51 +24,28 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Destructuring the state
     const { ...dataToSend } = formData;
 
-    // window.alert(JSON.stringify(formData));
-    window.alert("Account Created");
-
-    console.log("Data to send:", dataToSend);
-
-    // try {
-    //   const token = await signUp(dataToSend);
-
-    //   if (token.error) {
-    //     setFormData({ ...formData, error: token.error });
-    //     console.log(token.error);
-    //   } else {
-    //     localStorage.setItem("token", token.token);
-    //     console.log(token.token);
-    //   }
-    // } catch {
-    //   setFormData({ ...formData, error: "Something failed" });
-    //   console.log();
-    // }
-
     try {
-      const token = await signUp(dataToSend);
+      const response = await fetch("/api/users/signup", {
+        method: "POST",
+        body: JSON.stringify(dataToSend),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      if (token && token.token) {
+      if (response.ok) {
+        const token = await response.json();
         localStorage.setItem("token", token.token);
+        setFormData({ ...formData, error: "Account created successfully!" });
       } else {
-        console.error("Invalid token format");
+        setFormData({ ...formData, error: "Email has already been used" });
       }
     } catch (error) {
+      setFormData({ ...formData, error: "Something failed" });
       console.error("Error during token retrieval:", error);
     }
-
-    const response = await fetch("/api/users/signup", {
-      method: "POST",
-      body: JSON.stringify(dataToSend),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const json = await response.json();
-    console.log(json);
   };
 
   const disable = formData.password !== formData.confirm;
@@ -198,12 +174,14 @@ export default function SignUpForm({ setIsNewAccount, user, setUser }) {
                   </span>
                 </p>
               </form>
+
+              <p className="error-message text-jade-500">
+                &nbsp;{formData.error}
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      <p className="error-message">&nbsp;{formData.error}</p>
     </div>
   );
 }
