@@ -45,18 +45,6 @@ app.use("/api/plan", plansRouter);
 
 //* routes block
 
-// app.get("/api/orders", checkToken, (req, res) => {
-//   res.json({ orders: res.locals.userId });
-// });
-
-// app.get("/api/secret", checkToken, (req, res) => {
-//   res.json({ orders: req.name });
-// });
-
-app.get("/api", (req, res) => {
-  res.json({ hello: "world" });
-});
-
 //this acts as a catch all function and must be at the very end after all other functions
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
