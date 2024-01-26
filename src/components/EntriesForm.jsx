@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createEntry } from "../utilities/entries-service";
 import { createPlan } from "../utilities/plans-service";
 
@@ -12,11 +12,25 @@ export default function EntriesForm({ user }) {
     weight: "",
   });
 
+  useEffect(() => {
+    // Set initial values for exercise and muscle
+    setEntryFormData({
+      ...entryFormData,
+      exercise: "Bench Press",
+      muscle: "Chest",
+    });
+
+    console.log(entryFormData);
+  }, []);
+
   const handleChange = (evt) => {
     setEntryFormData({
       ...entryFormData,
       [evt.target.name]: evt.target.value,
     });
+
+    console.log(evt.target.value);
+    console.log(entryFormData);
   };
 
   const handleClick = async (submitType, evt) => {
