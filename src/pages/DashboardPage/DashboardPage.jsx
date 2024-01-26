@@ -27,12 +27,12 @@ export default function DashboardPage({ user }) {
   }, [user._id]);
 
   //with some help from chatgpt
-  //Sort entries by date in descending order
+  //Sort entries by date from the newest to the oldest
   const sortedEntries = entries.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  //Take the 5 most recent days
+  //Take the 5 most recent days (the first 5)
   const mostRecentDays = Array.from(
     new Set(sortedEntries.map((entry) => entry.date))
   ).slice(0, 5);
