@@ -40,7 +40,11 @@ export default function SignUpForm({ setIsNewAccount }) {
         localStorage.setItem("token", token.token);
         setFormData({ ...formData, error: "Account created successfully!" });
       } else {
-        setFormData({ ...formData, error: "Email has already been used" });
+        setFormData({
+          ...formData,
+          error:
+            "Email has already been used. Please choose a different email.",
+        });
       }
     } catch (error) {
       setFormData({ ...formData, error: "Something failed" });
