@@ -30,7 +30,7 @@ export default function App() {
   // console.log("user", user);
   return (
     <>
-      <header>{user?.name}</header>
+      {/* <header>{user?.name}</header> */}
       {user ? (
         <>
           <SideNavBar setUser={setUser} />
