@@ -54,7 +54,7 @@ Gym goers can utilise fitCommit to plan their workouts with the Calendar feature
 
 ## Analysis of Code
 
-**Backend Controller Function**
+**Backend Controller Function** <br>
 ![Backend Controller Function.js File](https://github.com/johnww15/fitcommit/blob/main/public/10_Function.png?raw=true)
 
 - By including the Regular Expression, sorting and limiting functions into the controller function, we were able to reduce the amount of data transformation required in the frontend during the development phase.
@@ -64,19 +64,19 @@ Gym goers can utilise fitCommit to plan their workouts with the Calendar feature
 
 ## Screenshots of Application
 
-**Login Account Screen**
+**Login Account Screen** <br>
 ![Login Screen](https://github.com/johnww15/fitcommit/blob/main/public/01_Login.png?raw=true)
 
-**Register Account Screen**
+**Register Account Screen** <br>
 ![Register Account Screen](https://github.com/johnww15/fitcommit/blob/main/public/02_Register.png?raw=true)
 
-**New Entry Screen**
+**New Entry Screen** <br>
 ![New Entry Screen](https://github.com/johnww15/fitcommit/blob/main/public/03_NewEntry.png?raw=true)
 
 - Users can fill this form with the specific details of an exercise and choose to add it as a workout they have completed in the past or a workout they are planning to do in the future.
 - The form will record the data and it will be shown on the calendar (as shown below)
 
-**Calendar Screen**
+**Calendar Screen** <br>
 ![Calendar Screen](https://github.com/johnww15/fitcommit/blob/main/public/04_Calendar.png?raw=true)
 
 1. Side Navigation Bar
@@ -90,30 +90,30 @@ Gym goers can utilise fitCommit to plan their workouts with the Calendar feature
 
 - A quick visual summary of the most recent completed workouts for users to plan their next workout accordingly
 
-**Workout Plans Modal**
+**Workout Plans Modal** <br>
 ![Workout Plans Modal](https://github.com/johnww15/fitcommit/blob/main/public/05_Plans.png?raw=true)
 
 - When a date with a light green circle is clicked, a modal will appear showing the workouts planned on that date.
 - Users may choose to click "Edit" to make alteration to the entry (shown below)
 
-**Edit Plans Modal**
+**Edit Plans Modal** <br>
 ![Edit Plans Modal](https://github.com/johnww15/fitcommit/blob/main/public/06_EditPlans.png?raw=true)
 
 - If users edit the plans, the calendar will render in real time to reflect the changes
 
-**Progress Charts**
+**Progress Charts** <br>
 ![Progress Charts](https://github.com/johnww15/fitcommit/blob/main/public/07_Progress.png?raw=true)
 
 - A graphic representation of the maximum weight lifted by the user in chronological order
 - Users may use this to track the maximum weight they have lifted in different exercises
 
-**Recommendations Screen**
+**Recommendations Screen** <br>
 ![Recommendations Screen](https://github.com/johnww15/fitcommit/blob/main/public/08_Recommendations.png?raw=true)
 
 - For the more adventurous, the application has a "Recommendations" feature where users may input a body part they wish to work on and the application will recommend some exercises for it
 - Users may then choose to create an entry for a future workout plan or to include into a seperate "Favourites" list for future reference (shown below)
 
-**Favourites List**
+**Favourites List** <br>
 ![Favourites List](https://github.com/johnww15/fitcommit/blob/main/public/09_Favourites.png)
 
 - Similar to the Recommendations Screen, users can look at their saved workouts and quickly create entries for future workout plans
