@@ -79,7 +79,7 @@ Gym goers can utilise fitCommit to plan their workouts with the Calendar feature
 **Calendar Screen** <br>
 ![Calendar Screen](https://github.com/johnww15/fitcommit/blob/main/public/04_Calendar.png?raw=true)
 
-1. Side Navigation Bar
+1. Side Navigation Bar <br>
 2. Calendar
 
 - Calendar is interactable
