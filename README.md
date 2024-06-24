@@ -1,6 +1,8 @@
 # fitCommit
 
-A fitness tracking application to empower gym goers beyond their limits. https://fitcommit.cyclic.app/ (Cyclic has ended its services)
+A fitness tracking application to empower gym goers beyond their limits. (initially deployed on Cyclic has ended its services)
+
+Currently deployed using Render.com (https://fitcommit.onrender.com)
 
 This project was jointly developed by: Joey (frontend), Bobby (auth pages), Jonathan (backend)
 
